@@ -1,22 +1,10 @@
 # **📌 مواضيع سكشن اليوم في JavaScript**
 
 ## **1️⃣ المقدمة**
-- لمحة سريعة عن JavaScript وأهميتها.
-- كيف تعمل JavaScript داخل المتصفح؟
-
 ## **2️⃣ المتغيرات في JavaScript وال Hoisting**
-- تعريف المتغيرات (`var`, `let`, `const`).
-- الفرق بين كل نوع من المتغيرات.
-- مفهوم الـ Hoisting وكيف يؤثر على JavaScript.
 
 ## **3️⃣ Data Types**
-- أنواع البيانات في JavaScript.
-
 ## **4️⃣ Functions**
-- تعريف الدوال وأنواعها.
-
-## **5️⃣ DOM**
-- كيفية التعامل مع عناصر الصفحة برمجيًا.
 
 <br>
 
@@ -36,7 +24,6 @@
 💡 **ما هو Hoisting؟**  
 - **قبل تنفيذ أي كود، المتصفح يرفع جميع المتغيرات والدوال إلى أعلى الـ Scope.**  
 - **لكن كل نوع من المتغيرات يتعامل مع Hoisting بطريقة مختلفة!**  
-- **الدوال المعرّفة بـ `function` يتم رفعها بالكامل، بينما `function expressions` لا يتم رفعها كدوال.**  
 - **TDZ = Temporal Dead Zone**
 
 📌 **مثال عملي يوضح Hoisting مع `var`, `let`, `const`**  
@@ -294,80 +281,3 @@ var sayHi = function() {
 ```
 
 ---
-<br>
-
-# **🔵 5. التعامل مع الـ DOM (Document Object Model)**
-
-📌 **الـ DOM هو الواجهة التي تسمح لنا بالتفاعل مع عناصر الـ HTML باستخدام JavaScript.**
-
-## **🔹 5.1. تحديد عناصر HTML في JavaScript**
-
-### **1️⃣ `getElementById()` - تحديد عنصر باستخدام الـ ID**
-```js
-let title = document.getElementById("main-title");
-console.log(title.textContent);
-```
-
-### **2️⃣ `getElementsByClassName()` - تحديد عناصر باستخدام الـ Class**
-```js
-let items = document.getElementsByClassName("list-item");
-console.log(items[0].textContent);
-```
-
-### **3️⃣ `querySelector()` و `querySelectorAll()`**
-```js
-let firstItem = document.querySelector(".list-item"); // عنصر واحد فقط
-let allItems = document.querySelectorAll(".list-item"); // جميع العناصر المطابقة
-```
-
----
-
-## **🔹 5.2. تعديل محتوى العناصر**
-
-### **1️⃣ تغيير النص داخل عنصر HTML**
-```js
-document.getElementById("main-title").textContent = "Welcome to JavaScript!";
-```
-
-### **2️⃣ تغيير HTML داخل عنصر**
-```js
-document.getElementById("content").innerHTML = "<strong>Bold Text</strong>";
-```
-
----
-
-## **🔹 5.3. تعديل الأنماط (CSS) باستخدام JavaScript**
-```js
-document.getElementById("main-title").style.color = "red";
-document.getElementById("main-title").style.fontSize = "24px";
-```
-
----
-
-## **🔹 5.4. التعامل مع الأحداث (Events)**
-
-📌 **الأحداث تُستخدم لجعل الصفحات تفاعلية.**
-
-### **1️⃣ إضافة حدث إلى عنصر باستخدام `addEventListener`**
-```js
-document.getElementById("myButton").addEventListener("click", function() {
-    alert("تم الضغط على الزر!");
-});
-```
-
-### **2️⃣ التعامل مع الحدث داخل دالة مستقلة**
-```js
-function showMessage() {
-    alert("مرحبًا بك في JavaScript!");
-}
-document.getElementById("myButton").addEventListener("click", showMessage);
-```
-
----
-
-## **🎯 خلاصة**
-- **أنواع البيانات** تنقسم إلى Primitive و Reference.
-- **الدوال** في JavaScript لها أنواع مختلفة مثل `Function Declaration` و `Function Expression` و `Arrow Function`.
-- **التعامل مع الـ DOM** يسمح بتغيير محتوى الصفحة وتعديل الأنماط وإضافة أحداث تفاعلية.
-
-🔥 **كده عندك محتوى شرح مرتب وكامل لأساسيات JavaScript مع التركيز على DOM!** 🚀

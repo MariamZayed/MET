@@ -43,7 +43,7 @@ const z = 15;
 ```js
 var x;  // ✅ يتم رفع تعريف var ويكون `undefined`
 let y;  // ✅ يتم رفع let لكنه في TDZ
-const z; // ✅ يتم رفع const لكنه في TDZ
+const z=20; // ✅ يتم رفع const لكنه في TDZ
 
 console.log(x); // ✅ undefined
 console.log(y); // ❌ ReferenceError
@@ -51,7 +51,6 @@ console.log(z); // ❌ ReferenceError
 
 x = 5;
 y = 10;
-z = 15;
 ```
 
 | النوع  | هل يتم رفعه؟ | هل يمكن استخدامه قبل التعريف؟ | القيمة الأولية |

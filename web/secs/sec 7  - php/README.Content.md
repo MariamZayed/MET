@@ -2,7 +2,7 @@
 
 ### أنواع الـ Arrays في PHP:
 
-1. **Indexed Arrays (مصفوفات مفهرسة):**
+1. **Indexed Arrays:**
    - تحتوي على عناصر بترتيب رقمي.
    ```php
    $colors = array("red", "green", "blue");
@@ -16,7 +16,7 @@
    echo $person["name"]; // Ali
    ```
 
-3. **Multidimensional Arrays (مصفوفات متعددة الأبعاد):**
+3. **Multidimensional Arrays:**
    - تحتوي على أكثر من array داخلية.
    ```php
    $people = array(

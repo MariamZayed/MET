@@ -1,5 +1,5 @@
 ; Define a custom function to calculate the average
-(defun calculate-average (?num1 ?num2)
+(deffunction calculate-average (?num1 ?num2)
     (/ (+ ?num1 ?num2) 2)
 )
 

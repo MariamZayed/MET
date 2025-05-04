@@ -1,8 +1,8 @@
 (deffacts Test
   (colors blue red green)
-  ;(colors red green) ;ده تعليق
-  ;(colors green blue)
-  ;(colors red blue)
+  (colors red green) ;ده تعليق
+  (colors green blue)
+  (colors red blue)
 )
 ; لازم تعمل reset عشان يعمل run for the facts
 
@@ -12,7 +12,8 @@
 (defrule  Mix1
    (colors ?c1  ?c2) ; بيدور على فاكت اسمها كلور وعندها متغيرين
    (test
-        (and (or (eq  ?c1  red)  (eq  ?c2  red))
+        (and 
+             (or (eq  ?c1  red)  (eq  ?c2  red))
              (or (eq  ?c1  green)  (eq  ?c2  green))
    ))
 =>
@@ -45,6 +46,7 @@
 =>
    (printout t "Red + Blue = Magenta" crlf)
 )
+
 
 (defrule Mix4
    (colors ?c1 ?c2 ?c3)

@@ -17,7 +17,7 @@
   (slot name)
   (slot age))
 
-(definstance Mariam of Person
+(definstance obj of Person
   (name "Mariam")
   (age 25))
 ```

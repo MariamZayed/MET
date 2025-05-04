@@ -4,7 +4,7 @@
 2. Multiple inherertence
 3. creating instance
 4. pttern matching with obj patterns
-5. eleting instance
+5. Deleting instance
 
 ### 1. Defining Classes and Constructors (CLIPS)
 

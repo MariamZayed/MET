@@ -65,7 +65,9 @@ CLIPS بيدعم الوراثة المتعددة، يعني ممكن كلاس ي
 
 ```clips
 (defrule match-circle
-  ?f <- (object (is-a Circle) (radius ?r))
+  ?f <- (object (is-a Circle) (radius ?r)) ; ده اسم اوبجكت باترن 
+                                            ; دور على اي انستانس عندك من كلاس سيركل ويكون عندها سلوت ( او بروبرتي) نوعها radius
+                                           ; خلي بالك الاوبجكت ده باترن ماتشنج, يعني الجمله بتاعت اوبجكت از ا سيركل معناها = دور على اي انستانس عندك من كلاس سيركل 
   =>
   (printout t "It's a circle with radius " ?r crlf))
 

@@ -2,14 +2,14 @@
 
 ## 1. Introduction
 
-في السي بلص بلص عندنا برامج بتبدأ من الدالة الأساسية `main()`. الكود بيتكتب جواها، وهي اللي بتتنفذ أول حاجة.
+في C++ أي برنامج بيبدأ من الدالة الأساسية `main()`. الكود بيتكتب جواها، وهي اللي بتتنفذ أول حاجة.
 
 ---
 
 ## 2. Input / Output
 
-* علشان نستخدم الدوال الجاهزة زي `cout` و `cin` بنحتاج نكتب `#include <iostream>`.
-* عادةً لازم نكتب `std::cout` و `std::cin`، بس لو كتبنا `using namespace std;` فوق (بعد المكتبات) هنقدر نستخدم `cout` و `cin` على طول من غير `std::`. ده بيوفر كتابة طويلة كل مرة.
+* علشان نستخدم الدوال الجاهزة زي `cout` و `cin` لازم نكتب `#include <iostream>`.
+* عادةً لازم نكتب `std::cout` و `std::cin`، بس لو كتبنا `using namespace std;` فوق (بعد المكتبات) هنقدر نستخدم `cout` و `cin` على طول من غير `std::`.
 
 #### Example without `using namespace std;`
 
@@ -41,89 +41,120 @@ int main() {
 
 ## 3. Variables and Data Types
 
-المتغيرات هي مكان نخزن فيه البيانات. السي بلص بلص strongly typed، يعني لازم نحدد نوع المتغير (int, float, double, char...).
+`variables` هي أماكن نخزن فيها بيانات. C++ strongly typed، يعني لازم نحدد نوع الـ variable (int, long, float, double, char, bool...).
 
-#### Example:
+### Initialization Methods
+
+1. **Copy Initialization**
 
 ```cpp
-int age = 25;
-float pi = 3.14;
-char grade = 'A';
+int x = 5;
+```
+
+2. **Direct Initialization**
+
+```cpp
+int y(10);
+```
+
+3. **Uniform Initialization (Brace Initialization)**
+
+```cpp
+int z{15};
+```
+
+4. **Type Deduction with auto**
+
+```cpp
+auto pi = 3.14; // pi هيبقى double
+```
+
+### Constants
+
+* `const` values ما ينفعش تتغير.
+* `constexpr` values بتتحدد وقت الـ compile.
+
+```cpp
+const int DAYS = 7;
+constexpr double gravity = 9.81;
 ```
 
 ---
 
-## 4. Control Structures
+## 4. Flow Control
 
-بتخلينا نتحكم في تدفق البرنامج:
-
-* if/else
-* loops (for, while, do-while)
-
-#### Example:
+### if / else
 
 ```cpp
 int x = 10;
 if (x > 5) {
     cout << "x is greater than 5" << endl;
+} else {
+    cout << "x is less or equal to 5" << endl;
 }
+```
+
+### switch
+
+```cpp
+int day = 2;
+switch(day) {
+    case 1: cout << "Monday"; break;
+    case 2: cout << "Tuesday"; break;
+    default: cout << "Other day";
+}
+```
+
+### Loops
+
+#### for loop
+
+```cpp
+for (int i = 0; i < 5; i++) {
+    cout << i << endl;
+}
+```
+
+#### while loop
+
+```cpp
+int i = 0;
+while (i < 5) {
+    cout << i << endl;
+    i++;
+}
+```
+
+#### do-while loop
+
+```cpp
+int i = 0;
+do {
+    cout << i << endl;
+    i++;
+} while (i < 5);
 ```
 
 ---
 
 ## 5. Functions
 
-وظائف/دوال بتخلينا نقسم الكود لأجزاء صغيرة قابلة لإعادة الاستخدام.
-
-### مكان تعريف الفانكشنز
-
-* ينفع نعرف الفانكشن **قبل الماين**.
-* أو نعرفها **بعد الماين**، وفي الحالة دي لازم نكتب **Prototype** فوق عشان الكومبايلر يعرف إنها موجودة.
-
-#### Example: تعريف قبل `main()`
+`functions` بتخلينا نقسم الكود لأجزاء قابلة لإعادة الاستخدام. ممكن نستخدم **reference** كـ parameter علشان نعدل على القيمة الأصلية.
 
 ```cpp
-#include <iostream>
-using namespace std;
-
 int add(int a, int b) {
     return a + b;
 }
 
-int main() {
-    cout << add(3, 4);
-}
-```
-
-#### Example: تعريف بعد `main()` مع Prototype
-
-```cpp
-#include <iostream>
-using namespace std;
-
-int add(int a, int b); // Prototype
-
-int main() {
-    cout << add(3, 4);
-}
-
-int add(int a, int b) {
-    return a + b;
-}
-```
-
-#### Example: void Function
-
-```cpp
-#include <iostream>
-using namespace std;
-
-void greet(string name) {
-    cout << "Hello, " << name << "!" << endl;
+void increment(int &x) {
+    x++;
 }
 
 int main() {
-    greet("Mariam");
+    cout << add(3, 4) << endl; // 7
+    int num = 5;
+    increment(num);
+    cout << num << endl; // 6
 }
 ```
 
@@ -131,23 +162,40 @@ int main() {
 
 ## 6. Arrays
 
-بتخزن أكتر من قيمة من نفس النوع.
+`array` بتخزن أكتر من قيمة من نفس النوع.
+
+### Declaration and Initialization
 
 ```cpp
-int arr[3] = {1, 2, 3};
-cout << arr[0]; // يطبع 1
+int arr1[3] = {1, 2, 3};
+int arr2[] = {4, 5, 6};
+int arr3[5] = {0}; // باقي العناصر هتبقى 0
+```
+
+### Access Elements
+
+```cpp
+cout << arr1[0]; // 1
+```
+
+### Loop through array
+
+```cpp
+for (int i = 0; i < 3; i++) {
+    cout << arr1[i] << " ";
+}
 ```
 
 ---
 
 ## 7. Pointers
 
-مؤشرات بتخزن عنوان متغير.
+`pointers` بتخزن عنوان متغير.
 
 ```cpp
 int x = 10;
 int* ptr = &x;
-cout << *ptr; // يطبع 10
+cout << *ptr; // 10
 ```
 
 ---
@@ -156,10 +204,10 @@ cout << *ptr; // يطبع 10
 
 الـ OOP في C++ مبنية على 4 مبادئ أساسية:
 
-1. **Encapsulation**: نجمع البيانات والدوال اللي بتشتغل عليها في كلاس واحد.
-2. **Inheritance**: كلاس يرث خصائص ودوال من كلاس تاني.
-3. **Polymorphism**: نفس الدالة يكون ليها سلوك مختلف حسب السياق.
-4. **Abstraction**: إخفاء التفاصيل وإظهار الوظائف الأساسية.
+1. **Encapsulation**: نجمع البيانات والدوال اللي بتشتغل عليها في class.
+2. **Inheritance**: class يرث من class تاني.
+3. **Polymorphism**: نفس الـ function ممكن يبقى ليها سلوك مختلف.
+4. **Abstraction**: نخفي التفاصيل ونظهر الوظائف الأساسية.
 
 #### Example:
 
@@ -179,8 +227,8 @@ public:
 
 int main() {
     Dog d;
-    d.eat();  // موروثة من Animal
-    d.bark(); // خاصة بـ Dog
+    d.eat();  // inherited from Animal
+    d.bark(); // specific to Dog
 }
 ```
 
@@ -190,20 +238,21 @@ int main() {
 
 ### Task 1: Input / Output & Variables
 
-* اعمل برنامج يطلب من المستخدم **اسمه (string name)** و **سنه (int age)**.
+* اعمل برنامج يطلب من المستخدم **string name** و **int age**.
 * اطبع رسالة ترحيب فيها الاسم والسن.
 
-### Task 2: Control Structures & Functions
+### Task 2: Flow Control & Functions
 
-* اكتب دالة تستقبل **int number**.
-* تتحقق إذا الرقم **زوجي أو فردي**.
-* اطبع النتيجة للمستخدم.
+* اكتب function تستقبل **int number**.
+* تتحقق إذا الرقم **even or odd**.
+* اطبع النتيجة.
 
 ### Task 3: OOP
 
-* اعمل كلاس اسمه `Student` فيه:
+* اعمل class اسمه `Student` فيه:
 
-  * متغير `string name`
-  * متغير `int grade`
-* عرف كائنين (objects) من الكلاس.
-* اطبع بياناتهم باستخدام دالة داخل الكلاس.
+  * variable `string name`
+  * variable `int grade`
+* عرف كائنين (objects) من الـ class.
+* اطبع بياناتهم باستخدام function جوه الـ class.
+

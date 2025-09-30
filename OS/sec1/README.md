@@ -1,8 +1,8 @@
-حاضر يا # Chapter 1 – Operating System
+# Chapter 1 – Operating System
 
 ## 1. Introduction
 
-An **Operating System (OS)** is the most important software in any computer system. It works as an **intermediary** between the user and the hardware.
+An **Operating System (OS)** is the most important <mark>software</mark> in any computer system. It works as an **intermediary** between the user and the hardware.
 
 * Without an OS → hardware is useless for the user.
 * With an OS → the user can interact easily with the system.
@@ -66,3 +66,4 @@ Users → Application Programs → System Programs → Operating System → Hard
 * Security and Protection
 
 (Details will be covered in later chapters.)
+

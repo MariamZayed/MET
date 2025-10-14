@@ -1,79 +1,178 @@
-
 # Session 2: File Permissions & Ownership in Linux
 
-## 1. Overview
-In this session, we’ll dive deeper into how Linux controls **access to files and directories**.  
-Students will learn how permissions work, how to view them, and how to modify them using commands.
+## 1. مقدمة
+
+النهارده هنتكلم عن جزء مهم جدًا في Linux وهو **File Permissions & Ownership**.
+الموضوع ده بيخلينا نفهم مين يقدر يفتح، يعدّل، أو يشغّل ملف معين، ومين لا.
+وده من أهم أساسيات الأمان في أي نظام تشغيل.
 
 ---
 
-## 2. Topics Covered
-- Understanding File Ownership
-  - The concepts of **user**, **group**, and **others**
-  - File types in permission notation (e.g., `-`, `d`, `l`)
-- Understanding File Permissions
-  - Read (`r`), Write (`w`), Execute (`x`)
-  - Permissions for files vs. directories
-- Viewing Permissions
-  - Using `ls -l` to display permissions
-  - Breaking down each section of the output
-- Changing Permissions
-  - Using `chmod` (symbolic and numeric modes)
-  - Common examples and practical exercises
-- Changing Ownership
-  - Using `chown` and `chgrp`
-  - Understanding why root privileges are sometimes required
-- Permission Denied Errors
-  - How to interpret and solve them
+## 2. فكرة الملكية (Ownership)
+
+كل ملف أو فولدر في لينكس له **3 أنواع من الملاك**:
+
+* **User (المالك)**: الشخص اللي أنشأ الملف.
+* **Group (المجموعة)**: مجموعة مستخدمين ليهم صلاحيات مشتركة.
+* **Others (الآخرين)**: أي مستخدم تاني على النظام.
+
+يعني النظام بيقسّم الناس اللي ممكن يتعاملوا مع الملف لـ 3 فئات.
+
+مثال عملي:
+
+```bash
+ls -l notes.txt
+```
+
+الناتج ممكن يطلع كده:
+
+```
+-rw-r--r-- 1 mariam staff 2048 Oct 7 10:00 notes.txt
+```
+
+نقرأها إزاي؟
+
+* `-rw-r--r--` → دي الصلاحيات.
+* `mariam` → دي المالك.
+* `staff` → دي المجموعة.
+* `notes.txt` → اسم الملف.
+
+يبقى مريم هي اللي ليها التحكم الكامل في الملف ده.
 
 ---
 
-## 3. Live Demonstrations
-1. Display file permissions using `ls -l`
-2. Modify file permissions:
-   - Example: `chmod u+x script.sh`
-   - Example: `chmod 755 myfolder`
-3. Change file ownership (for demonstration):
-   - `sudo chown user2 file.txt`
-4. Explain what happens when a user doesn’t have permission to execute or write to a file.
+## 3. فكرة الصلاحيات (Permissions)
+
+كل ملف أو فولدر له 3 أنواع من الصلاحيات:
+
+* **r** = read (قراءة)
+* **w** = write (كتابة أو تعديل)
+* **x** = execute (تشغيل)
+
+وبيظهروا بالشكل ده:
+
+```
+rwx rwx rwx
+|   |   |
+|   |   └── others
+|   └────── group
+└────────── user
+```
+
+🧠 مثال:
+
+```
+-rw-r--r--
+```
+
+* الـ user: يقرأ ويكتب.
+* الـ group: يقرأ فقط.
+* الـ others: يقرأ فقط.
 
 ---
 
-## 4. Commands Summary
-| Command | Description |
-|----------|--------------|
-| `ls -l` | List files with detailed information including permissions |
-| `chmod` | Change file or directory permissions |
-| `chown` | Change file owner |
-| `chgrp` | Change file’s group owner |
-| `whoami` | Display the current user |
-| `id` | Display user and group information |
+## 4. تعديل الصلاحيات (Changing Permissions)
+
+في لينكس عندنا طريقتين نغير بيهم الصلاحيات:
+
+### أ. الطريقة الرمزية (Symbolic Mode)
+
+* `chmod u+x file` → أضف execute للمالك.
+* `chmod g-w file` → احذف write من الجروب.
+* `chmod o+r file` → أضف read للآخرين.
+
+### ب. الطريقة الرقمية (Numeric Mode)
+
+كل صلاحية ليها قيمة:
+
+| Permission | Value |
+| ---------- | ----- |
+| r          | 4     |
+| w          | 2     |
+| x          | 1     |
+
+بنجمّعهم عشان نحدد كل فئة تاخد إيه:
+
+* `7` = 4+2+1 = `rwx`
+* `6` = 4+2 = `rw-`
+* `5` = 4+1 = `r-x`
+* `4` = `r--`
+
+🧠 مثال:
+
+```bash
+chmod 755 script.sh
+```
+
+* المالك (7): يقرأ، يكتب، ويشغّل.
+* الجروب (5): يقرأ ويشغّل.
+* الآخرون (5): يقرأ ويشغّل.
 
 ---
 
-## 5. Tasks
+## 5. تغيير الملكية (Changing Ownership)
 
-### **Task 1: Viewing Permissions**
-Create three files (`file1.txt`, `file2.txt`, `file3.txt`) and one directory (`mydir`).
-Use `ls -l` to list them and write down:
-- Which ones are files vs. directories  
-- What their default permissions are  
-- Who owns them  
+* `chown user file` → يغيّر المالك.
+* `chgrp group file` → يغيّر المجموعة.
 
----
+مثال:
 
-### **Task 2: Modifying Permissions**
-Change permissions using both symbolic and numeric methods:
-1. Give the owner execute permission on `file1.txt`
-2. Remove write permission from the group on `file2.txt`
-3. Set `mydir` to full access (read, write, execute) for everyone
+```bash
+sudo chown khaled notes.txt
+```
+
+كده الملف بقى ملك **khaled** بدل **mariam**.
 
 ---
 
-### **Task 3: Ownership and Access**
-1. Create a new user (demonstration or explanation only if not possible locally)  
-2. Change the owner of one file using `sudo chown`  
-3. Try accessing the file from another user and observe the permission error  
-4. Fix the error by changing ownership or permissions appropriately
+## 6. التعامل مع "Permission Denied"
+
+لو جالك الخطأ:
+
+```
+Permission denied
+```
+
+ده معناه إنك بتحاول تعمل حاجة مش مسموحالك بيها.
+
+الحل:
+
+* إمّا تستخدم `sudo` لو محتاجة صلاحيات أعلى.
+* أو تغيّري الصلاحيات بالأوامر اللي فوق.
 
 ---
+
+## 7. عرض أجزاء من الملف
+
+أحيانًا بنحتاج نستعرض جزء من الملف مش كله:
+
+* `head -n 20 file.txt` → أول 20 سطر.
+* `tail -n 20 file.txt` → آخر 20 سطر.
+
+---
+
+## 8. Tasks
+
+### **Task 1: عرض الصلاحيات**
+
+1. أنشئ 3 ملفات (`file1.txt`, `file2.txt`, `file3.txt`) وفولدر (`mydir`).
+2. استخدم `ls -l` وشوفي:
+
+   * مين المالك؟
+   * الصلاحيات الافتراضية شكلها إيه؟
+
+---
+
+### **Task 2: تعديل الصلاحيات**
+
+1. أضيفي execute للـ user على `file1.txt`.
+2. احذفي write من الجروب على `file2.txt`.
+3. خلي `mydir` بصلاحيات كاملة (read, write, execute) لكل الناس.
+
+---
+
+### **Task 3: تجربة الملكية**
+
+1. غيّري مالك ملف باستخدام `sudo chown`.
+2. شوفي الفرق لما المستخدم التاني يحاول يفتحه.
+3. عدّلي الصلاحيات عشان تسمحي له يفتحه.

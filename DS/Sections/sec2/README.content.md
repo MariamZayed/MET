@@ -54,7 +54,7 @@ using namespace std;
 
 int main() {
     int arr[10] = {5, 2, 8, 9, 1};
-    int n = 5;        // عدد العناصر الحالية
+    int n = sizeof(arr) / sizeof(arr[0]);    // عدد العناصر الحالية
     int item = 7;      // العنصر الجديد
 
     cout << "Array before insertion:\n";
@@ -63,7 +63,7 @@ int main() {
     }
 
     // نضيف العنصر الجديد في النهاية
-    arr[n] = item;
+    arr[n] = item; // خلي بالك الاندكس ده فاضي, ومتاح, لان اصلا حجم المصفوفه كبيره وفيها اماكن متاحه في اخرها
     n++;
 
     cout << "\n\nArray after insertion (unsorted):\n";
@@ -160,3 +160,12 @@ int main() {
 | -------------- | -------------------------- | --------------- | ------------ |
 | Unsorted Array | نضيف في النهاية أو أي مكان | O(1)            | ❌ لا         |
 | Sorted Array   | نضيف في مكانه الصحيح       | O(n)            | ✅ نعم        |
+
+
+---
+
+## Tasks
+
+### Task 1 – Insertion
+
+Write a code for an insertion sorted array, but in for loop instead of while.

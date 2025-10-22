@@ -1,3 +1,16 @@
+### 🔍 نقطه مهمه فارقه
+
+| **Structure** | **Logical Type** | **Stored Physically In** |
+|----------------|------------------|---------------------------|
+| **Tree** | Non-linear | Array أو Linked Nodes |
+| **Graph** | Non-linear | Adjacency Matrix (2D Array) أو Adjacency List (Vector أو Linked List) |
+| **Stack** | Linear | Array أو Linked List |
+| **Queue** | Linear | Array أو Linked List |
+
+---
+<br>
+<br>
+
 # 🧩 Arrays في C++
 
 ## 🔹 مقدمة

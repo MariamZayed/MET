@@ -222,3 +222,50 @@ int main() {
 * العمليات الأساسية: push, pop, peek.
 * ممكن يتنفذ باستخدام Array أو Linked List.
 * أهم التطبيقات: Expression Evaluation, Backtracking, Memory Management.
+---
+<br>
+
+## 🧠 **Tasks — Stack Applications & Implementation**
+
+### **Task 1 — Postfix Evaluation**
+Write a C++ program to **evaluate a postfix expression** using a stack.  
+- Define a function `evaluatePostfix(string expression)` that returns the result.  
+- Use an **array-based stack** (like in the session).  
+- Test it with this expression:  
+  ```
+  2 3 4 + * 5 -
+  ```
+  The output should be:  
+  ```
+  Result = 9
+  ```
+
+---
+
+### **Task 2 — Backtracking Concept**
+Simulate a **simple backtracking process** using a stack.  
+Example: Suppose you’re exploring rooms labeled A → B → C → D,  
+and you need to go back to the previous room when you find a dead end.  
+- Use `push()` when you move forward.  
+- Use `pop()` when you backtrack.  
+- Print each action (e.g., `"Moved to B"`, `"Backtracked to A"`).
+
+---
+
+### **Task 3 — Stack Overflow & Underflow**
+Modify the array-based Stack program from the session to test:  
+- **Overflow** (try pushing 6 elements when `MAX = 5`)  
+- **Underflow** (try popping from an empty stack)  
+Then print clear messages for both conditions.
+
+---
+
+### **Task 4 — Clean Implementation Practice**
+Re-implement the stack using **functions only (no global variables)**.  
+- Create `push()`, `pop()`, `peek()`, `isEmpty()`, and `isFull()` that take `stack[]` and `top` as parameters.  
+- Make sure every student uses the same variable names:
+  ```cpp
+  int stack[MAX];
+  int top;
+  ```
+  and initialize `top = -1;

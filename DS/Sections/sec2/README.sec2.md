@@ -7,6 +7,9 @@
 | **Stack** | Linear | Array أو Linked List |
 | **Queue** | Linear | Array أو Linked List |
 
+- الـ ADT (Abstract Data Type) = الفكرة النظرية أو المنطق اللي بيحدد العمليات بس.
+- الـ Data Structure = الطريقة اللي هننفّذ بيها الـ ADT جوّه الميموري فعليًا. ممكن نعمل Stack باستخدام Array, أو نعمل Stack باستخدام Linked List.
+
 ---
 <br>
 <br>

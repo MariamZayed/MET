@@ -60,7 +60,7 @@ Teaching Assistant — Computer Science Department, MET
 Passionate about making computer science concepts clear, structured, and enjoyable to learn.
 
 ---
-<br><br>
+<br>
 
 ## 🔗 MET Official Links
 <a href="https://metmans.edu.eg/">

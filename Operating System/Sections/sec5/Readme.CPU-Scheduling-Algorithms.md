@@ -1,4 +1,4 @@
-# 🧩 Session 5: CPU Scheduling Algorithms
+#  Session 5 - CPU Scheduling Algorithms
 
 ## 🔹 Introduction
 

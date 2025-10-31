@@ -3,7 +3,7 @@
 # MET Courses Materials
 
 > **Disclaimer:**  
-> The materials in this repository were created and delivered under the supervision of the **Computer Science Faculty at MET**.  
+> The materials in this repository were created and delivered under the supervision of the **Computer Science Department at MET**.  
 > I contributed by organizing lectures, preparing supplementary examples, and simplifying complex concepts through both theoretical and practical explanations.
 
 ---

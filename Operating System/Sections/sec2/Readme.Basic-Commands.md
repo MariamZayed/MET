@@ -1,5 +1,5 @@
 
-🧩 Session 1 — Introduction to Linux
+## Session 2 — Introduction to Linux Basic Commands
 
 🎯 Goal:
 تعريف الطلاب بأساسيات نظام Linux بطريقة بسيطة وعملية تساعدهم يكتسبوا ثقة في استخدام الـ command line.

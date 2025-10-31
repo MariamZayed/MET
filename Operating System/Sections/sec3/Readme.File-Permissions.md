@@ -1,4 +1,4 @@
-# Session 2: Users, Groups, and Permissions in Linux
+# Session 3 - Users, Groups, and Permissions in Linux
 
 ---
 

@@ -145,12 +145,6 @@
 4. Make sure all students use the same variable names so the results match.
 
 ---
-
-✅ **Extra Task:**
-Rewrite any SJF (non-preemptive) program you made before using **while loop** instead of **for loop**.
----
-# معلومه اثرائيه
-
 كلمة “Robin” لوحدها معناها:
 
 اسم طائر (الـ robin bird 🐦)

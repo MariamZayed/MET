@@ -1,5 +1,5 @@
 
-# 🧩 Session 4 — Using `sudo` Command, I/O Redirection, and Pipes
+# Session 4 — Using `sudo` Command, I/O Redirection, and Pipes
 
 ---
 

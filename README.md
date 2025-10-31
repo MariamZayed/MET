@@ -16,33 +16,15 @@ It reflects a dual teaching approach — combining **theoretical understanding**
 - One or two **in-session quizzes** each semester to reinforce understanding.
 
 ---
-
 ## 📚 Courses Included
 
-### 1. **Clips**
-- Taught in: **Second Semester (2024 / 2025)**  
-- Year: **Fourth Year**  
-- Status: ✅ Completed  
-- Includes examples and practical problem-solving clips delivered during the course.
+| # | Course Name | Semester | Year | Status | Description |
+|---|--------------|-----------|------|----------|-------------|
+| 1 | **Clips** | Second Semester (2024 / 2025) | Fourth Year | ✅ Completed | Includes examples and practical problem-solving clips delivered during the course. |
+| 2 | **Web Development** | Second Semester (2024 / 2025) | Second Year | ✅ Completed | CSS, Bootstrap, JavaScript, PHP using Xampp and MySQL with live demos and practical projects. |
+| 3 | **Operating System** | First Semester (2025 / 2026) | Third Year | 🔄 Ongoing | 🔄 |
+| 4 | **Data Structure in C++** | First Semester (2025 / 2026) | Second Year | 🔄 Ongoing | 🔄 |
 
-
-### 2. **Web Development**
-- Taught in: **Second Semester (2024 / 2025)**  
-- Year: **Second Year**  
-- Status: ✅ Completed  
-- Contents: CSS, Bootstrap, JavaScript, PHP using Xampp and MySQL with live demos and practical projects.
-
-
-### 3. **Operating System**
-- Currently teaching in: **First Semester (2025 / 2026)**  
-- Year: **Third Year**  
-- Status: 🔄 Ongoing  
-
-
-### 4. **Data Structure in C++**
-- Currently teaching in: **First Semester (2025 / 2026)**  
-- Year: **Second Year**  
-- Status: 🔄 Ongoing  
 ---
 
 ## Teaching Approach

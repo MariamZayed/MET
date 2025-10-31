@@ -1,4 +1,4 @@
-# Chapter 1 – Operating System
+# Session 1 - Introduction to Operating System
 
 ## 1. Introduction
 

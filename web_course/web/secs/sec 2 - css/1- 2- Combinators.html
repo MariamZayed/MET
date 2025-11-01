@@ -1,0 +1,23 @@
+<head>
+    <style>
+        div p { color: red; }  /* بأي مستوى التاج داخل الديف هيكون احمر يكون أحمر */
+        div > p { color: blue; } /* اي تاج داخل الديف نوعه براجراف هيكون لونه ازرق*/
+        div + p { color: green; } /* اول تاج بعد برا الديف هيكون لونه اخضر*/
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <p> I should be red, but the > made me blue </p>
+
+        <div>
+            <p> I should also be red, but > came and changed me to blue </p>
+        </div>
+    </div>
+
+    <p> I am green</p>
+   
+
+
+</body>

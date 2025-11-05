@@ -151,3 +151,102 @@ void display() {
 * لما `rear == MAXSIZE - 1` → معناها إن الـ Queue **مليانة**.
 * كل عملية `dequeue` بتحرك الـ `front` خطوة لقدام.
 
+---
+Perfect Mymti ❤️ here’s the **Queue Tasks (English Version)** — same structure, but all in clear technical English so you can use it for studying or teaching.
+
+---
+
+## Tasks
+
+### 🔹 **Task 1 – Trace the Operations**
+
+**Given:**
+
+```cpp
+enqueue(10)
+enqueue(20)
+enqueue(30)
+dequeue()
+enqueue(40)
+```
+
+**Questions:**
+
+1. Write down the content of the queue after each step.
+2. Record the values of `front` and `rear` after every operation.
+3. Which element was removed when `dequeue()` was called?
+
+---
+
+### 🔹 **Task 2 – Debug the Code**
+
+Find and fix the logical errors in the following code snippet:
+
+```cpp
+void enqueue(int value) {
+    if (rear == MAXSIZE)
+        cout << "Queue Overflow";
+    rear++;
+    queue[rear] = value;
+    if (front == 0)
+        front = 1;
+}
+```
+
+**Hint:**
+
+* What should happen when the queue is empty for the first time?
+* What condition really means “queue is full”?
+* What is the correct initial value for `front`?
+
+---
+
+### 🔹 **Task 3 – Hand Simulation**
+
+Simulate the following queue operations **manually** (as if you’re tracing the code step-by-step):
+
+```
+enqueue(5)
+enqueue(10)
+dequeue()
+enqueue(15)
+enqueue(20)
+dequeue()
+display()
+```
+
+**Write down:**
+
+* The contents of the queue after each step.
+* The values of `front` and `rear` after each operation.
+* What will `display()` print in the end?
+
+---
+
+### 🔹 **Task 4 – Mini Project (Code Practice)**
+
+Write a simple **C++ program** that:
+
+* Implements the functions:
+
+  * `enqueue()`
+  * `dequeue()`
+  * `display()`
+* Uses an array of size **5**.
+* Prints `"Queue Overflow!"` if the user tries to insert more than 5 elements.
+* Prints `"Queue Underflow!"` if the user tries to delete from an empty queue.
+* Prints clear messages like `"Deleted 10 from queue"` or `"Inserted 20 into queue"`.
+
+---
+
+### 🔹 **Task 5 – Conceptual Questions**
+
+Answer briefly:
+
+1. What is the main difference between a **Stack** and a **Queue**?
+2. Why do we need both `front` and `rear` pointers in a queue?
+3. What are **overflow** and **underflow** conditions?
+4. When do both `front` and `rear` reset back to `-1`?
+5. What’s the difference between `peek()` and `dequeue()`?
+
+---

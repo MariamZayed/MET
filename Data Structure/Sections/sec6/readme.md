@@ -152,9 +152,6 @@ void display() {
 * كل عملية `dequeue` بتحرك الـ `front` خطوة لقدام.
 
 ---
-Perfect Mymti ❤️ here’s the **Queue Tasks (English Version)** — same structure, but all in clear technical English so you can use it for studying or teaching.
-
----
 
 ## Tasks
 

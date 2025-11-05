@@ -151,4 +151,3 @@ void display() {
 * لما `rear == MAXSIZE - 1` → معناها إن الـ Queue **مليانة**.
 * كل عملية `dequeue` بتحرك الـ `front` خطوة لقدام.
 
----؟

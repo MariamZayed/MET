@@ -5,28 +5,44 @@ int main() {
     printf("Enter number of processes: ");
     scanf("%d", &n);
 
-    int bt[n], wt[n], tat[n];
+    int at[n], bt[n], wt[n], tat[n], ft[n];
     float total_wt = 0, total_tat = 0;
 
-    printf("Enter Burst Time for each process:\n");
+    printf("Enter Arrival Time and Burst Time for each process:\n");
     for (int i = 0; i < n; i++) {
         printf("P%d: ", i + 1);
-        scanf("%d", &bt[i]);
+        scanf("%d %d", &at[i], &bt[i]);
     }
 
-    wt[0] = 0; // first process waiting time = 0
-    for (int i = 1; i < n; i++)
-        wt[i] = bt[i - 1] + wt[i - 1];
+    // Sort by Arrival Time
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = i + 1; j < n; j++) {
+            if (at[i] > at[j]) {
+                int temp = at[i]; at[i] = at[j]; at[j] = temp;
+                temp = bt[i]; bt[i] = bt[j]; bt[j] = temp;
+            }
+        }
+    }
 
-    for (int i = 0; i < n; i++)
-        tat[i] = bt[i] + wt[i];
+    // Compute Finish, TAT, WT
+    ft[0] = at[0] + bt[0];
+    for (int i = 1; i < n; i++) {
+        if (at[i] > ft[i-1])
+            ft[i] = at[i] + bt[i];
+        else
+            ft[i] = ft[i-1] + bt[i];
+    }
 
-    printf("\nProcess\tBT\tWT\tTAT\n");
     for (int i = 0; i < n; i++) {
-        printf("P%d\t%d\t%d\t%d\n", i + 1, bt[i], wt[i], tat[i]);
+        tat[i] = ft[i] - at[i];
+        wt[i] = tat[i] - bt[i];
         total_wt += wt[i];
         total_tat += tat[i];
     }
+
+    printf("\nProcess\tAT\tBT\tFT\tWT\tTAT\n");
+    for (int i = 0; i < n; i++)
+        printf("P%d\t%d\t%d\t%d\t%d\t%d\n", i + 1, at[i], bt[i], ft[i], wt[i], tat[i]);
 
     printf("\nAverage Waiting Time = %.2f", total_wt / n);
     printf("\nAverage Turnaround Time = %.2f\n", total_tat / n);

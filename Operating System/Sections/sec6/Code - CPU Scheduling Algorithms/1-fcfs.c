@@ -25,13 +25,13 @@ int main() {
         }
     }
 
-    // Calculate Start Time and Finish Time
+    // Calculate Start Time and Finish time for the first process
     st[0] = at[0];
-    if (st[0] < at[0])
-        st[0] = at[0];
     ft[0] = st[0] + bt[0];
 
+    // Calculate st and ft for the rest of the processes
     for (int i = 1; i < n; i++) {
+        // if the i pro came when the cpu is empty, then pro is starting immediately
         if (at[i] > ft[i - 1])
             st[i] = at[i];
         else
@@ -40,6 +40,7 @@ int main() {
     }
 
     // Calculate TAT and WT
+    // {Turnaround Time} = {Finish Time} - {Arrival Time}
     for (int i = 0; i < n; i++) {
         tat[i] = ft[i] - at[i];
         wt[i] = tat[i] - bt[i];

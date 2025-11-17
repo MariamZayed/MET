@@ -5,46 +5,69 @@ int main() {
     printf("Enter number of processes: ");
     scanf("%d", &n);
 
-    int bt[n], wt[n], tat[n], p[n];
-    float total_wt = 0, total_tat = 0;
+    int pid[n], at[n], bt[n], st[n], ft[n], wt[n], tat[n], completed[n];
 
-    printf("Enter Burst Time for each process:\n");
+    printf("Enter Arrival Time and Burst Time for each process:\n");
     for (int i = 0; i < n; i++) {
-        printf("P%d: ", i + 1);
-        scanf("%d", &bt[i]);
-        p[i] = i + 1;
+        pid[i] = i + 1;  // P1, P2, P3...
+        printf("P%d: ", pid[i]);
+        scanf("%d %d", &at[i], &bt[i]);
+        completed[i] = 0;
     }
 
-    // Sort by burst time
+
+    // Step 1: Sort by arrival time (زي FCFS بالظبط)
     for (int i = 0; i < n - 1; i++) {
         for (int j = i + 1; j < n; j++) {
-            if (bt[i] > bt[j]) {
-                int temp = bt[i];
-                bt[i] = bt[j];
-                bt[j] = temp;
+            if (at[i] > at[j]) {
 
-                temp = p[i];
-                p[i] = p[j];
-                p[j] = temp;
+                int temp;
+
+                temp = at[i];  at[i] = at[j];  at[j] = temp;
+                temp = bt[i];  bt[i] = bt[j];  bt[j] = temp;
+                temp = pid[i]; pid[i] = pid[j]; pid[j] = temp;
+
             }
         }
     }
 
-    wt[0] = 0;
-    for (int i = 1; i < n; i++)
-        wt[i] = wt[i - 1] + bt[i - 1];
+    int time = 0, done = 0;
 
-    for (int i = 0; i < n; i++)
-        tat[i] = bt[i] + wt[i];
+    // اختيار أقصر Burst من اللي وصلوا
+    while (done < n) {
 
-    printf("\nProcess\tBT\tWT\tTAT\n");
-    for (int i = 0; i < n; i++) {
-        printf("P%d\t%d\t%d\t%d\n", p[i], bt[i], wt[i], tat[i]);
-        total_wt += wt[i];
-        total_tat += tat[i];
+        int idx = -1;
+        int minBT = 1e9;
+
+        for (int i = 0; i < n; i++) {
+            if (!completed[i] && at[i] <= time && bt[i] < minBT) {
+                minBT = bt[i];
+                idx = i;
+            }
+        }
+
+        // لو معنديش عملية وصلت لسه → الوقت يمشي
+        if (idx == -1) {
+            time++;
+            continue;
+        }
+
+        st[idx] = time;
+        ft[idx] = time + bt[idx];
+        tat[idx] = ft[idx] - at[idx];
+        wt[idx] = tat[idx] - bt[idx];
+
+        time = ft[idx];
+        completed[idx] = 1;
+        done++;
     }
 
-    printf("\nAverage Waiting Time = %.2f", total_wt / n);
-    printf("\nAverage Turnaround Time = %.2f\n", total_tat / n);
+    // Output
+    printf("\nProcess\tAT\tBT\tST\tFT\tWT\tTAT\n");
+    for (int i = 0; i < n; i++) {
+        printf("P%d\t%d\t%d\t%d\t%d\t%d\t%d\n",
+               pid[i], at[i], bt[i], st[i], ft[i], wt[i], tat[i]);
+    }
+
     return 0;
 }

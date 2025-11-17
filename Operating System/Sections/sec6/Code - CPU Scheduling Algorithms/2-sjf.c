@@ -37,7 +37,7 @@ int main() {
     while (done < n) {
 
         int idx = -1;
-        int minBT = 1e9;
+        int minBT = INT_MAX;
 
         for (int i = 0; i < n; i++) {
             if (!completed[i] && at[i] <= time && bt[i] < minBT) {

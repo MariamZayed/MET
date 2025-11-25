@@ -16,15 +16,7 @@
 
 الـ **Thread** هو أصغر وحدة تنفيذ داخل الـ **Process**.
 التعريف: single sequence of excution
-الـ Process ممكن يحتوي كذا Thread كلهم بيشاركوا نفس الـ **address space** ونفس الـ **resources**، وده بيسمح بتنفيذ **parallelism** و **concurrency**.
-
-ليه بنحتاج الـ Threads؟
-لأن فيه تطبيقات كتير محتاجة تنفّذ أكتر من مهمة في نفس الوقت، زي:
-
-* السيرفرات
-* تطبيقات الـ GUI
-* الألعاب
-* أنظمة الـ Real-Time
+الـ Process ممكن يحتوي كذا Thread كلهم بيشاركوا نفس الـ **address space** ونفس الـ **resources**، وده بيسمح بتنفيذ **parallelism** أو **concurrency**.
 
 ---
 ## **2. Benefits of Thread**
@@ -40,11 +32,9 @@
 
 ### **2.1 Responsiveness**
 
-وجود أكتر من Thread بيخلي البرنامج يفضل شغال حتى لو فيه Thread تاني بيعمل شغل تقيل, وحى لو ثريد حصلها بلوك, الفنكشن كلها مش هتقف, لانها ماسكه فرع صغير (عكس البروسيس)
-ملحوظة, كل حاجه هنا هتشتغل على التوازي, فالشغل هيخلص اسرع وهيبقى احسن لليوزر لان كل حاجه بترد عليه بسرعه
-مثال: اللابتوب ما بيهنّجش وهو بيعمل Download لأن المهام موزعة على Threads.
+وجود أكتر من Thread بيخلي البرنامج يفضل شغال حتى لو فيه thread تاني بيعمل شغل تقيل, وحى لو ثريد حصلها بلوك, الفنكشن كلها مش هتقف, لانها ماسكه فرع صغير (عكس البروسيس)
+ملحوظة, احنا لسه شغالين بالتوازي
 
----
 
 ### **2.2 Resource Sharing**
 
@@ -55,8 +45,6 @@
 * نفس الـ data
 
 وده بيخلّي تبادل البيانات أسهل من الـ **Processes** اللي بتحتاج **IPC – Inter-Process Communication**.
-
----
 
 ### **2.3 Economy (Lightweight Execution)**
 
@@ -110,25 +98,18 @@ Multiprocessor = جهاز فيه أكثر من Processor
 
 ## **3. Multicore Programming Challenges**
 
-### **3.1 What Multicore Means**
+### **3.1 Challenges of Multicore Programming**
 
-معالج فيه أكتر من **Core**.
-كل Core يعتبر processor صغير مستقل، وده بيسمح بتنفيذ parallel threads.
-
----
-
-### **3.2 Challenges of Multicore Programming**
-
-#### **3.2.1 Identifying Tasks**
+#### **3.1.1 Identifying Tasks**
 
 لازم يقسم البرنامج او البروجرام ل tasks لجزء ينفع يتنفّذ في Thread مستقل.
 
-#### **3.2.2 Balance**
+#### **3.1.2 Balance**
 
 لازم يوزّع المهام بحيث مفيش Core تبقى محمّلة زيادة عن اللزوم.
 Ensure each thread performs equal work, equal value.
 
->##### **3.2.2.1 Load Balancing Criteria**
+>##### **3.1.1 Load Balancing Criteria**
 
 > التوزيع مش حسب الوقت ولا الحجم بس… هو مزيج من:
 >
@@ -222,7 +203,7 @@ Ensure each thread performs equal work, equal value.
 
 * لو حصل block في حاجة معينة (زي I/O)، الــ kernel هيوقف الـ process كله → كل الـ user threads هتقف معاه.
 
-##### **ملاحظة مهمة (زي ما طلبتي):**
+##### **ملاحظة مهمة:**
 
 الـ **User Thread ماهو إلا libraries تتحمّل** في البرنامج علشان تدير الـ threads من غير ما تدخل الـ kernel.
 
@@ -252,10 +233,7 @@ Ensure each thread performs equal work, equal value.
 * إنشاءها و الـ switching بينها أبطأ من user threads.
 
 ---
-
-
-
-
+## **4.2 Types of Models**
 
 ### **4.2.1 Many-to-One Model**
 
@@ -279,7 +257,6 @@ Ensure each thread performs equal work, equal value.
 * مكلف من حيث الموارد
 <img width="365" height="138" alt="download" src="https://github.com/user-attachments/assets/5fce9421-1a7b-4c2f-bd56-808e741c445e" />
 
----
 
 ### **4.2.3 Many-to-Many Model**
 
@@ -291,19 +268,7 @@ Ensure each thread performs equal work, equal value.
 * بيقلل overhead
 ![download](https://github.com/user-attachments/assets/68df3364-3809-42b9-87df-6cab1a72c08a)
 
----
-### **4.2.3 Many-to-Many Model**
 
-عدة **user threads** ممكن ترتبط بعدد أقل أو مساوي من **kernel threads**.
-الـ Model ده بيجمع مميزات الـ **User-level threads** ومميزات الـ **Kernel-level threads** مع بعض، وده اللي بيخليه أكثر توازنًا ومرونة.
-
-**ليه الموديل ده مميز؟**
-
-* بيدعم **parallelism** → لأن بعض الـ user threads ممكن تتربط بكذا kernel thread.
-* بيدي **مرونة عالية** → تقدر تنشئ عدد ضخم من الـ user threads من غير ما تزود الحمل على الـ kernel.
-* بيقلل **overhead** → لأن التحويل context switching بين user threads أرخص من التحويل بين kernel threads.
-
----
 
 ### **4.2.4 Two-Level (Two-Tier) Model**
 

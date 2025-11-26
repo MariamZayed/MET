@@ -12,12 +12,12 @@ Node* head = NULL;
 
 
 ///--------------------------------
-void insertFirst(int key, int data) {
-    Node* link = new Node();
-    link->key = key;
-    link->data = data;
-    link->next = head;
-    head = link;
+void insertFirst(int data) {
+    Node* newNode = new Node();
+    newNode->data = data;
+    newNode->next = NULL;
+    newNode->prev = NULL;
+    head = newNode;
 }
 
 // Insert at End
@@ -34,7 +34,7 @@ void insertEnd(int data) {
         return;
     }
 
-    // امشي لآخر نود
+    //لو مش فاضية امشي لآخر نود
     Node* temp = head;
     while (temp->next != NULL) {
         temp = temp->next;
@@ -48,10 +48,10 @@ void insertEnd(int data) {
 // -----------------------------------------------
 // Insert Before a Given Node
 // -----------------------------------------------
-void insertBefore(Node* nextNode, int data) {
+void insertBefore(Node* paramNode, int data) {
 
     // لو النود اللي هندخل قبلها مش موجودة
-    if (nextNode == NULL) {
+    if (paramNode == NULL) {
         cout << "Given node cannot be NULL\n";
         return;
     }
@@ -59,20 +59,20 @@ void insertBefore(Node* nextNode, int data) {
     Node* newNode = new Node();
     newNode->data = data;
 
-    newNode->prev = nextNode->prev;
-    newNode->next = nextNode;
+    newNode->prev = paramNode->prev;
+    newNode->next = paramNode;
 
     // لو هنضيف قبل الـ head
-    if (nextNode->prev != NULL) {
-        nextNode->prev->next = newNode;
+    if (paramNode->prev != NULL) {
+        paramNode->prev->next = newNode;
     } else {
         head = newNode;   // النود الجديدة بقت الهيد
     }
 
-    nextNode->prev = newNode;
+    paramNode->prev = newNode;
 }
 
-// -----------------------------------------------
+
 // Display the list
 // -----------------------------------------------
 void printList() {

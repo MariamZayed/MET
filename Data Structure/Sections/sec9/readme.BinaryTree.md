@@ -1,7 +1,11 @@
+<p dir="rtl">
+  
 # **Binary Tree — Session**
 
 ## **1. Introduction to Binary Trees**
-**Binary Tree** هي **هيكل بيانات (Data Structure)** مكوّن من مجموعة من العقد (nodes). كل **node** لها:
+**Binary Tree**
+
+هي **هيكل بيانات (Data Structure)** مكوّن من مجموعة من العقد (nodes). كل **node** لها:
 - قيمة (value)
 - قد يكون لها **left subtree** و **right subtree**
 
@@ -201,3 +205,4 @@ int main() {
                       \
                       78
 </pre>
+</p>

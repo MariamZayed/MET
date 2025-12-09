@@ -1,0 +1,193 @@
+✅ Part 1: Understanding the Code (Warm-up)
+
+1. In this code, what is the purpose of each array:
+
+at[]
+
+bt[]
+
+st[]
+
+ft[]
+
+wt[]
+
+tat[]
+
+
+
+2. What does st[i] represent?
+When is it calculated?
+
+
+3. Explain the meaning of this formula:
+
+tat[i] = ft[i] - at[i];
+
+
+4. Why do we calculate Waiting Time as:
+
+wt[i] = tat[i] - bt[i];
+
+
+5. What will happen if we remove the line that updates ft[i]?
+
+
+
+
+---
+
+✅ Part 2: Tracing FCFS (Manual Dry Run)
+
+Given the following input:
+
+Number of processes = 3
+P1: AT = 0 , BT = 5
+P2: AT = 2 , BT = 3
+P3: AT = 4 , BT = 1
+
+6. Fill the following table step by step:
+
+
+
+Process AT BT ST FT WT TAT
+
+
+
+7. At what time does the CPU become idle (if any)?
+
+
+8. What line in the code handles the case when the CPU is idle?
+
+
+
+
+---
+
+✅ Part 3: FCFS Logic Questions
+
+9. Why does FCFS not depend on Burst Time for scheduling?
+
+
+10. If two processes arrive at the same time, how does the code decide which one executes first?
+
+
+11. Is this implementation of FCFS preemptive or non-preemptive?
+Why?
+
+
+
+
+---
+
+✅ Part 4: Transition Thinking (FCFS → SJF non-preemptive)
+
+Using the same input as before:
+
+12. If we change the scheduling to non-preemptive SJF, which process executes first? Why?
+
+
+13. Compare the execution order between:
+
+
+
+FCFS
+
+non-preemptive SJF
+
+
+14. Which algorithm gives smaller average waiting time for this input?
+Justify your answer without coding.
+
+
+
+
+---
+
+✅ Part 5: Reading the SJF Code Carefully
+
+Look at this part of the SJF code:
+
+if (!completed[i] && at[i] <= time && bt[i] < minBT)
+
+15. Explain the role of each condition separately.
+
+
+16. What will happen if we remove:
+
+
+
+at[i] <= time
+
+17. What is the role of the completed[] array?
+Why can't we rely on bt[] alone?
+
+
+
+
+---
+
+✅ Part 6: Deep Understanding (Critical Thinking)
+
+18. Why is sorting by Arrival Time not mandatory in SJF non-preemptive?
+
+
+19. In non-preemptive SJF, when exactly do we choose the next process?
+
+
+
+Every time unit?
+
+Or only when the CPU becomes free?
+
+
+20. Explain why non-preemptive SJF can cause starvation.
+
+
+
+
+---
+
+✅ Part 7: Predict Without Running
+
+Given:
+
+P1: AT=0, BT=8
+P2: AT=1, BT=4
+P3: AT=2, BT=2
+P4: AT=3, BT=1
+
+21. Write the execution order for:
+
+
+
+FCFS
+
+non-preemptive SJF
+
+
+22. Which process waits the longest in FCFS?
+Which one waits the longest in SJF?
+
+
+
+
+---
+
+✅ Part 8: Code Awareness (No New Code)
+
+23. If we remove the array st[], can we still calculate WT and TAT?
+Explain.
+
+
+24. Which variables are essential for FCFS scheduling logic?
+Which ones are only for output?
+
+
+25. Write one sentence describing the main idea of:
+
+
+
+FCFS
+
+non-preemptive SJF

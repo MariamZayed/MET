@@ -5,11 +5,13 @@
 ## 1. What is a Graph?
 الجراف **Graph** هو تمثيل رياضي/تصويري لعلاقات بين عناصر.
 
-- **V (Vertices / Nodes)**  
-  كل نقطة بنسميها **vertex** أو **node**.
+- **V (Vertices / Nodes)**
+  
+كل نقطة بنسميها **vertex** أو **node**.
 
-- **E (Edges / Arcs)**  
-  مجموعة الروابط بين الـ vertices، كل رابط اسمه **edge** أو **arc**.
+- **E (Edges / Arcs)**
+  
+مجموعة الروابط بين الـ vertices، كل رابط اسمه **edge** أو **arc**.
 
 بالتالي:
 > Graph G = (V, E)
@@ -35,47 +37,46 @@
 
 ## 3. Basic Graph Terminology
 
-- **End-vertices**  
-  هما الطرفين بتوع الـ **edge**.
+**End-vertices**:
+- هما الطرفين بتوع الـ **edge**.
 
-- **Adjacent vertices**  
-  نقطتين بينهم **edge** مباشر.
+**Adjacent vertices**:
+- نقطتين بينهم **edge** مباشر.
 
-- **Incident edge**  
-  الـ edge بتكون incident على vertex لو الـ vertex دي طرف فيها.
+**Incident edge**:
+- الـ edge بتكون incident على vertex لو الـ vertex دي طرف فيها.
 
-- **Outgoing edges**  
-  في الـ directed graph:  
-  edges الخارجة من الـ vertex.
+**Outgoing edges**:
+- في الـ directed graph: الـ edges الخارجة من الـ vertex.
 
-- **Incoming edges**  
-  edges الداخلة للـ vertex.
+**Incoming edges**:
+- الـ edges الداخلة للـ vertex.
 
 ---
 
 ## 4. Degree Concepts
 
-- **Degree – deg(v)**  
-  عدد الـ edges المتصلة بـ vertex v.
+**Degree – deg(v)**
+- عدد الـ edges المتصلة بـ vertex v.
 
-- **Out-degree – outdeg(v)**  
-  عدد الـ outgoing edges.
+**Out-degree – outdeg(v)**  
+- عدد الـ outgoing edges.
 
-- **In-degree – indeg(v)**  
-  عدد الـ incoming edges.
+**In-degree – indeg(v)**  
+- عدد الـ incoming edges.
 
 ---
 
 ## 5. Special Edge Types
 
-- **Parallel edges (Multiple edges)**  
-  أكتر من edge بين نفس الـ vertices.
+**Parallel edges (Multiple edges)**  
+- أكتر من edge بين نفس الـ vertices.
 
-- **Self-loop**  
-  edge راجعة لنفس الـ vertex.
+**Self-loop**
+- الـ edge راجعة لنفس الـ vertex.
 
-- **Simple Graph**  
-  مفيهوش:
+**Simple Graph**  
+مفيهوش:
   - parallel edges  
   - self-loops  
 
@@ -85,7 +86,6 @@
 
 ### 6.1 Undirected Graph
 لو الجراف فيه `m` edges:
-
 Σ deg(v) = 2m
 
 ### 6.2 Directed Graph
@@ -109,46 +109,46 @@ m ≤ n(n − 1) / 2
 
 ## 7. Paths & Connectivity
 
-- **Path**  
-  تسلسل vertices متصلة ببعض.
+**Path**  
+- تسلسل vertices متصلة ببعض.
 
-- **Simple Path**  
-  مفيش vertex بتتكرر.
+**Simple Path**  
+- مفيش vertex بتتكرر.
 
-- **Cycle**  
-  path بيبدأ وينتهي بنفس vertex.
+**Cycle**
+- الـ path بيبدأ وينتهي بنفس vertex.
 
-- **Directed Path / Cycle**  
-  كل الـ edges فيه directed.
+**Directed Path / Cycle**  
+- كل الـ edges فيه directed.
 
-- **Subgraph**  
-  جزء من الجراف.
+**Subgraph**  
+- جزء من الجراف.
 
-- **Spanning Subgraph**  
-  subgraph فيه كل الـ vertices.
+**Spanning Subgraph**
+- الـ subgraph فيه كل الـ vertices.
 
 ---
 
 ## 8. Connected Graphs
 
-- **Connected Graph**  
-  أي vertex يوصل لأي vertex تاني بـ path.
+**Connected Graph**  
+- أي vertex يوصل لأي vertex تاني بـ path.
 
-- **Connected Component**  
-  أكبر جزء connected داخل graph مش connected بالكامل.
+**Connected Component**  
+- أكبر جزء connected داخل graph مش connected بالكامل.
 
 ---
 
 ## 9. Trees & Forests
 
-- **Forest**  
-  graph من غير cycles.
+**Forest**
+- الـ graph من غير cycles.
 
-- **Tree**  
-  connected forest.
+**Tree**  
+- الـ connected forest.
 
-- **Spanning Tree**  
-  tree يحتوي كل vertices الجراف.
+**Spanning Tree**  
+- الـ tree يحتوي كل vertices الجراف.
 
 ### Properties:
 لو `n` vertices و `m` edges:
@@ -166,7 +166,7 @@ m ≤ n(n − 1) / 2
 ويستخدم **Stack**
 
 **Idea:**
-نغوص في الجراف على الآخر، ولما نقف نرجع خطوة خطوة.
+- نغوص في الجراف على الآخر، ولما نقف نرجع خطوة خطوة.
 
 **Rules (DFS):**
 1. Visit an unvisited adjacent vertex, mark it visited, push it to stack.
@@ -208,4 +208,4 @@ m ≤ n(n − 1) / 2
 5. Trace DFS order starting from vertex A.
 6. Trace BFS order starting from the same vertex.
 
-7. </p>
+ </p>

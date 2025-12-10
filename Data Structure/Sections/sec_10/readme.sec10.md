@@ -41,16 +41,16 @@
 - هما الطرفين بتوع الـ **edge**.
 
 **Adjacent vertices**:
-- نقطتين بينهم **edge** مباشر.
+- نقطتين بينهم **edge** مباشر،. خلي بالك صفة ال Adjacent مش بتستخدم إلا لل nodes.
 
-**Incident edge**:
-- الـ edge بتكون incident على vertex لو الـ vertex دي طرف فيها.
+**Incident (ملامسة) edge**:
+- الـ edge بتكون incident (ملامسة) على verte، وخلي بالك صفة ال Incident إلا لل edges.
 
 **Outgoing edges**:
 - في الـ directed graph: الـ edges الخارجة من الـ vertex.
 
 **Incoming edges**:
-- الـ edges الداخلة للـ vertex.
+- في الـ directed graph: الـ edges الداخلة للـ vertex.
 
 ---
 
@@ -59,11 +59,13 @@
 **Degree – deg(v)**
 - عدد الـ edges المتصلة بـ vertex v.
 
+https://i0.wp.com/www.mathbootcamps.com/wp-content/uploads/graph-with-labelled-vertices-showing-all-vertex-degrees-2.png?w=602&ssl=1
+
 **Out-degree – outdeg(v)**  
-- عدد الـ outgoing edges.
+- عدد الـ edges الخارجه من النود، وده في الديريكتيد جراف.
 
 **In-degree – indeg(v)**  
-- عدد الـ incoming edges.
+- عدد الـ edges الي داخله لنود، وده في الديريكتيد جراف.
 
 ---
 
@@ -86,12 +88,11 @@
 
 ### 6.1 Undirected Graph
 لو الجراف فيه `m` edges:
-Σ deg(v) = 2m
+- Σ deg(v) = 2m
 
 ### 6.2 Directed Graph
 لو فيه `m` edges:
-
-Σ indeg(v) = m Σ outdeg(v) = m
+- Σ indeg(v) = m Σ outdeg(v) = m
 
 ### 6.3 Maximum Number of Edges (Simple Graph)
 - Directed:

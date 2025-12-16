@@ -8,7 +8,8 @@ struct Vertex {
     bool visited;
 };
 
-// stack
+// الستاك كل شغلانتها انها تخزن اندكس الفيرتكس الي موجوده في الجراف, يعني لو جراف موجود فيه 3 فيرتكس, فاول فيرتكس هيكون اندكس
+//  زيرو, وتاني فيرتكس انندكس 1 وتالت فيرتكس اندكس 2 
 int stack[MAX];
 int top = -1;
 
@@ -57,19 +58,19 @@ void displayVertex(int vertexIndex) {
 
 int getAdjUnvisitedVertex(int vertexIndex) {
     for (int i = 0; i < vertexCount; i++) {
-        if (adjMatrix[vertexIndex][i] == 1 &&
-            lstVertices[i]->visited == false) {
-            return i;
+        if (adjMatrix[vertexIndex][i] == 1 && lstVertices[i]->visited == false) {
+            return i;// اول مهيلاقي الفيرتكس المطلوبه, الفور لوب هيقف ويرجع الاندكس بتاع الفرتكس
         }
     }
-    return -1;
-}
+    return -1; // الحالة الوحيده تكون -1  لما تكون الصف الي احنا فيه يكون كل الفيرتكسيز  الفيزيتيد بتاعها = ترو
+}       
+
 
 void depthFirstSearch() {
-    // visit first vertex
+    // جملة تحفظها: ابدأ من أول فيرتكس، وخليه نقطة الرجوع. وبما ان نقطة الرجوع هى الساس ومش هتتغير فاحنا الي بندخلها بادينا
     lstVertices[0]->visited = true;
     displayVertex(0);
-    push(0);
+    push(0);// اول عنصر هيخش في الستاك هيكون ديما الاندكس بتاعه رقم زيرو,
 
     while (!isStackEmpty()) {
         int unvisitedVertex = getAdjUnvisitedVertex(peek());
@@ -90,7 +91,7 @@ void depthFirstSearch() {
 }
 
 int main() {
-    // initialize adjacency matrix
+\\\\\\    // initialize adjacency matrix
     for (int i = 0; i < MAX; i++) {
         for (int j = 0; j < MAX; j++) {
             adjMatrix[i][j] = 0;

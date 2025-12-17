@@ -9,13 +9,15 @@ struct Vertex {
 };
 
 // ===== Queue variables =====
+// الكيو شغلنتها انها تمسك الفيرتكس الي هيكون عليهم الدور, بحيث اشوف هل ليها جيران في نقس الليفل ولا لاه.
+// لما اخلص جيران الفيرتكس الحاليه, هخش في جيران الي عليه الدور في الكيو
 int queue[MAX];
 int front = 0;
 int rear = -1;
 int queueItemCount = 0;
 
 // ===== Graph variables =====
-struct Vertex* lstVertices[MAX];
+Vertex* lstVertices[MAX];
 int adjMatrix[MAX][MAX];
 int vertexCount = 0;
 
@@ -36,7 +38,7 @@ bool isQueueEmpty() {
 
 // ===== Graph functions =====
 void addVertex(char label) {
-    struct Vertex* vertex = (struct Vertex*) malloc(sizeof(struct Vertex));
+    Vertex* vertex = new Vertex;
     vertex->label = label;
     vertex->visited = false;
     lstVertices[vertexCount++] = vertex;
@@ -86,12 +88,11 @@ void breadthFirstSearch() {
 
 // ===== main =====
 int main() {
-    int i, j;
-
-    for (i = 0; i < MAX; i++)
-        for (j = 0; j < MAX; j++)
+    
+    for (int i = 0; i < MAX; i++)
+        for (int j = 0; j < MAX; j++)
             adjMatrix[i][j] = 0;
-
+    
     addVertex('S'); // 0
     addVertex('A'); // 1
     addVertex('B'); // 2
@@ -110,3 +111,4 @@ int main() {
 
     return 0;
 }
+ 

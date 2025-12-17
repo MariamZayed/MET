@@ -56,7 +56,7 @@ void displayVertex(int vertexIndex) {
     cout << lstVertices[vertexIndex]->label << " ";
 }
 
-int getAdjUnvisitedVertex(int vertexIndex) {
+int getAdjUnvisitedVertex(int vertexIndex) { //  غرضها الوحيد تجيب اول فيرتكس يحقق الشرط بتاع يكون مش متزار ويكون قيمته ب1 في الماتريكس
     for (int i = 0; i < vertexCount; i++) {
         if (adjMatrix[vertexIndex][i] == 1 && lstVertices[i]->visited == false) {
             return i;// اول مهيلاقي الفيرتكس المطلوبه, الفور لوب هيقف ويرجع الاندكس بتاع الفرتكس

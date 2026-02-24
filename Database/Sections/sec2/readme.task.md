@@ -1,5 +1,6 @@
 **1.** Create DB named ```met``` with table named ```staff```, and insert the following data
-![](image.png)
+<img width="620" height="401" alt="db" src="https://github.com/user-attachments/assets/ec965cc9-ebf3-4c9c-8d7e-fdc9a51b852d" />
+
 
 ---
 

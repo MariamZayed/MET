@@ -1,11 +1,20 @@
-Make Portfolio like the belown image with coming instructions
+<h1>task 1</h1>
+<h2>Make Portfolio like the belown image with coming instructions:</h2>
+<hr>
+
+>> ![photo_5834759006751231165_w](https://github.com/user-attachments/assets/e09d3a89-a4fc-4426-9e28-4004f1323e35)
+<hr><br><br>
+
+>> <h1>Here are the instructions:</h1><br>
+>> <img width="1344" height="648" alt="task 1" src="https://github.com/user-attachments/assets/7484017d-74e6-4be2-98e6-333bf22afcbd" />
+>> <img width="1346" height="484" alt="task2" src="https://github.com/user-attachments/assets/4a71431f-4323-41e5-9fb3-c0f7830983fb" /><br>
 
 <ol type="i">
     <li> Make html, head, title, body tags </li>
     <li> Put your name in the &lt;title&gt; tag, ex: "Mariam Zayed's Portfolio" </li>
     <li>
     In the body tag:
-        <ol>
+        <ol type="1">
             <li> make &lt;h1&gt; tag with your name</li>
             <li> make &lt;p&gt; tag with your current department </li>
             <li> make unorded list with 3 list items (Home, Projects, Contacts)</li>

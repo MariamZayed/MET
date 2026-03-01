@@ -1,0 +1,26 @@
+<head>
+    <style>
+        div p { color: red; }  /* أي تاج براجراف داخل الديف حتى لو حفيد الحفيد هيكون احمر */
+        div > p { color: blue; } /* اي تاج داخل الديف نوعه براجراف درجة الابن المباشر هيكون لونه ازرق*/
+        div + p { color: green; } /* اول تاج براجراف بعد الديف هيكون لونه اخضر(يعني اول اخ لازق في الديف)*/
+        div ~ p { color: yellow; } /* اي تاج برجراف بعد الديف يكون اصفر*/
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <p> I should be red, but the > made me blue </p>
+
+        <div>
+            <p> I should also be red, but > came and changed me to blue </p>
+        </div>
+    </div>
+
+    <p> I am green</p>
+
+    <p> I am yellow</p>
+   
+
+
+</body>

@@ -155,14 +155,12 @@ let b = 20;
 
 ---
 
-## **🎯 خلاصة **
+## 🎯 خلاصة 
 - JavaScript ترفع تعريف المتغيرات والدوال قبل التنفيذ.
 - `var` يُرفع لكن بدون قيمته (`undefined`).
 - `let` و `const` يتم رفعهم لكن يبقوا في **Temporal Dead Zone** حتى يصلهم التعريف.
 - `function` يتم رفعها بالكامل، لكن `function expressions` لا يتم رفعها كدوال.
 - `var` ليس له Block Scope، بينما `let` و `const` لهما.
-
-🔥 **كده عندك محتوى شرح مرتب وكامل لسكشن JavaScript مع التركيز على Hoisting!** 🚀
 
 
 ---
@@ -235,7 +233,7 @@ function greet() {
 
 ## **🔹 4.1. أنواع الدوال في JavaScript**
 
-### **1️⃣ Function Declaration **
+### **1️⃣ Function Declaration**
 ```js
 function greet(name) {
     return `Hello, ${name}!`;

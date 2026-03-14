@@ -1,0 +1,93 @@
+body {
+    background-color: rgb(230, 230, 255);     
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+p {
+    color: #555;
+    font-size: 18px;
+}
+h1 {
+    font-size: 3rem; /* حجم أكبر */
+    color: #2c3e50; /* لون داكن احترافي */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    margin-top: 30px;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+ul {
+    list-style: none;
+    margin: 20px auto;
+    padding: 0;
+    background-color:
+    width: 60%;
+    border-radius: 8px;
+    overflow: hidden; 
+}
+
+ul li {
+    display: inline-block;
+}
+
+ul li a {
+    display: inline-block;
+    padding: 12px 25px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+ul li a:hover {
+    background-color: #1abc9c;
+    transform: scale(1.1);
+}
+
+/* 4. Image Styling */
+img {
+    display: block; 
+    margin: 20px auto;
+    border-radius: 50%; 
+    border: 4px solid #1abc9c;
+    width: 200px;
+    height: 200px;
+    object-fit: cover; 
+}
+h2 + img + p {
+    line-height: 1.8;
+    max-width: 600px;
+    text-align: justify;
+    margin: auto;
+    padding: 10px;
+}
+
+/* 6. Contact Form Styling */
+input[type="text"], 
+input[type="email"], 
+textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 400px;
+    margin-bottom: 10px;
+}
+
+input[type="submit"] {
+    padding: 10px 30px;
+    background: #1abc9c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+input[type="submit"]:hover {
+    background: #16a085;
+    transform: translateY(-2px);
+}

@@ -33,10 +33,6 @@
 
 # Tasks
 
-Analyze the following code snippets and **predict the output before running them**.
-
----
-
 # Task 1 – var Hoisting
 
 ```javascript

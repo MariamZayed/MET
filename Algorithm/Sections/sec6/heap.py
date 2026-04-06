@@ -1,6 +1,6 @@
 # Python program for implementation of heap Sort
 
-def heapify(arr, n, i):
+def max_heapify(arr, n, i):       
  largest = i # Initialize largest as root
  l = 2 * i + 1 # left = 2*i + 1
  r = 2 * i + 2 # right = 2*i + 2
@@ -16,25 +16,24 @@ def heapify(arr, n, i):
 # Change root, if isn't a largest 
  if largest != i:
   (arr[i], arr[largest]) = (arr[largest], arr[i]) # swap
-
 # Heapify the root.
-  heapify(arr, n, largest)
+  max_heapify(arr, n, largest)
+
 
 
 # The main function to sort an array of given size
-
 def heapSort(arr):
  n = len(arr)
 
-# Build a maxheap.
+# Build a maxheap.  
 # Since last parent will be at (n//2) we can start at that location.
  for i in range(n // 2, -1, -1):     # => stop if we didn't have left and right child (-1 , -1)
-  heapify(arr, n, i)
+  max_heapify(arr, n, i)  #3 #2   #1
 
 # One by one extract elements
  for i in range(n - 1, 0, -1): # we stoped in index 0 because when we reach to index 0 all items will be sorted 
-  (arr[i], arr[0]) = (arr[0], arr[i]) # swap
-  heapify(arr, i, 0)
+  (arr[i], arr[0]) = (arr[0], arr[i]) #  swap
+  max_heapify(arr, i, 0)
 
 
 #  test code
@@ -45,3 +44,4 @@ n = len(arr)
 print('Sorted array is : ')
 for i in range(n):
  print(arr[i])
+                                                                                                     

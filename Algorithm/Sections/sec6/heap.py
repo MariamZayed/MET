@@ -19,8 +19,6 @@ def max_heapify(arr, n, i):
 # Heapify the root.
   max_heapify(arr, n, largest)
 
-
-
 # The main function to sort an array of given size
 def heapSort(arr):
  n = len(arr)
@@ -37,7 +35,6 @@ def heapSort(arr):
 
 
 #  test code
-
 arr = [12, 11, 13, 5, 6, 20 , 7 ]
 heapSort(arr)
 n = len(arr)

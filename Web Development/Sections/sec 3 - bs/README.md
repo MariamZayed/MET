@@ -148,7 +148,7 @@ npm install bootstrap
 ✅ **فايدته؟**  
 - مناسب لما تحب **العناصر تمتد بعرض الصفحة بالكامل**، زي الهيدر أو الفوتر.  
 
-![alt text](image.png)
+![alt text](./images%20for%20example/image.png)
 ---
 
 ## **🔍 مقارنة بين `container` و `container-fluid`**  
@@ -243,10 +243,10 @@ npm install bootstrap
 
 
 مثال في موبايل <br>
-![alt text](image-3.png)
+![alt text](./images%20for%20example/image-3.png)
 
 نفس الموقع على الابتوب<br>
-![alt text](image-2.png)
+![alt text](./images%20for%20example/image-2.png)
 
 ---
 
@@ -293,152 +293,44 @@ Bootstrap بيوفر كلاسات للمحاذاة الرأسية والأفقي
 ### 1. الأزرار (Buttons)
 الأزرار في Bootstrap جاهزة بتنسيقات مختلفة، وعشان تعمل زرار، استخدم كلاس `btn` مع ألوان مختلفة زي:
 
-```html
-<button class="btn btn-primary">زر رئيسي</button>
-<button class="btn btn-secondary">زر ثانوي</button>
-<button class="btn btn-success">زر نجاح</button>
-<button class="btn btn-danger">زر تحذير</button>
-<button class="btn btn-warning">زر تنبيه</button>
-<button class="btn btn-info">زر معلومات</button>
-<button class="btn btn-light">زر فاتح</button>
-<button class="btn btn-dark">زر داكن</button>
-```
-
 تقدر تخلي الزرار أكبر باستخدام `btn-lg` أو أصغر باستخدام `btn-sm`.
 
 ---
 
 ### 2. الأيقونات والتنبيهات (Alerts)
-التنبيهات بتستخدم لإظهار رسائل للمستخدم بشكل واضح:
+التنبيهات بتستخدم لإظهار رسائل للمستخدم بشكل واضح
 
-```html
-<div class="alert alert-success">عملية ناجحة!</div>
-<div class="alert alert-danger">حدث خطأ ما!</div>
-<div class="alert alert-warning">تحذير: انتبه لهذا الأمر.</div>
-<div class="alert alert-info">معلومة جديدة لك.</div>
-```
-
-ممكن كمان تخلي التنبيه قابل للإغلاق:
-
-```html
-<div class="alert alert-warning alert-dismissible fade show" role="alert">
-    تحذير: هذا إشعار مهم!
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
-```
-
+ممكن كمان تخلي التنبيه قابل للإغلاق
 ---
 
 ### 3. الكروت (Cards)
 الكروت بتساعدك في عرض المحتوى داخل صندوق منسق بشكل احترافي:
 
-```html
-<div class="card" style="width: 18rem;">
-    <img src="https://via.placeholder.com/150" class="card-img-top" alt="صورة">
-    <div class="card-body">
-        <h5 class="card-title">عنوان الكارت</h5>
-        <p class="card-text">هذا نص داخل الكارت.</p>
-        <a href="#" class="btn btn-primary">اضغط هنا</a>
-    </div>
-</div>
-```
-
-ممكن تضيف `card-header` أو `card-footer` لتنسيق أعلى وأسفل الكارت.
+ممكن تضيف: <br>
+`card-header` أو `card-footer` <br>
+ لتنسيق أعلى وأسفل الكارت.
 
 ---
 
 ### 4. القوائم المنسدلة (Dropdowns)
 القوائم المنسدلة بتسمح بعرض خيارات عند الضغط على زر معين:
 
-```html
-<div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
-        القائمة المنسدلة
-    </button>
-    <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">الخيار الأول</a></li>
-        <li><a class="dropdown-item" href="#">الخيار الثاني</a></li>
-        <li><a class="dropdown-item" href="#">الخيار الثالث</a></li>
-    </ul>
-</div>
-```
-
 ---
 
 ### 5. المودال (Modal) - النوافذ المنبثقة
 المودال بيسمح لك بعرض نافذة منبثقة عند الضغط على زر معين:
 
-```html
-<!-- زر يفتح المودال -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    افتح النافذة
-</button>
-
-<!-- المودال نفسه -->
-<div class="modal fade" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">عنوان المودال</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="إغلاق"></button>
-            </div>
-            <div class="modal-body">
-                هذا هو محتوى المودال.
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إغلاق</button>
-                <button type="button" class="btn btn-primary">حفظ التغييرات</button>
-            </div>
-        </div>
-    </div>
-</div>
-```
 
 ---
 
 ### 6. الـ Navbar (الشريط العلوي للتنقل)
 لو عايز تعمل قائمة تنقل احترافية، استخدم الـ Navbar:
 
-```html
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">موقعي</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link active" href="#">الرئيسية</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">حول</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">خدمات</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">اتصل بنا</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
-```
-
 ---
 
 ### 7. الـ Accordion (القوائم القابلة للطي)
 مفيدة لو عندك محتوى طويل وتريد عرضه بطريقة منظمة:
 
-```html
-<div class="accordion" id="accordionExample">
-    <div class="accordion-item">
-        <h2 class="accordion-header">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
-                عنوان القسم الأول
-            </button>
-        </h2>
-        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-                محتوى القسم الأول.
-            </div>
-        </div>
-    </div>
-</div>
-```
 
 ---
 

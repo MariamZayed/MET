@@ -23,7 +23,7 @@
 
 ---
 
-## 🔥 ملخص سريع  
+## ملخص سريع  
 ✅ Bootstrap = إطار عمل CSS جاهز  
 ✅ بيوفر عليك كتابة أكواد CSS كتير  
 ✅ بيدعم التصميم المتجاوب  
@@ -51,14 +51,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bootstrap Setup</title>
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> <!-- السطر ده هنا-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous"> 
 </head>
 <body>
 
     <h1 class="text-center text-primary">مرحبًا بك في Bootstrap!</h1>
 
     <!-- Bootstrap JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"> هنشرح ده قدام</script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>
 ```
@@ -148,6 +148,7 @@ npm install bootstrap
 ✅ **فايدته؟**  
 - مناسب لما تحب **العناصر تمتد بعرض الصفحة بالكامل**، زي الهيدر أو الفوتر.  
 
+![alt text](image.png)
 ---
 
 ## **🔍 مقارنة بين `container` و `container-fluid`**  
@@ -157,37 +158,6 @@ npm install bootstrap
 | **العرض**         | ثابت، لكنه يتغير حسب الشاشة | 100% من عرض الشاشة دائمًا |
 | **الهوامش (Margins)** | فيه هوامش على الجانبين | مفيش، بياخد الشاشة بالكامل |
 | **الاستخدام الأفضل** | لو عايز محتوى الصفحة يكون في المنتصف | لو عايز التصميم يمتد بعرض الشاشة |
-
----
-
-## **🔹 مثال عملي يوضح الفرق**  
-
-```html
-<!DOCTYPE html>
-<html lang="ar">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bootstrap Containers</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-
-    <!-- container (بعرض محدد) -->
-    <div class="container bg-primary text-white p-3">
-        <h2>أنا داخل container</h2>
-        <p>العرض عندي محدود وبيتغير حسب الشاشة.</p>
-    </div>
-
-    <!-- container-fluid (عرض الشاشة بالكامل) -->
-    <div class="container-fluid bg-success text-white p-3 mt-3">
-        <h2>أنا داخل container-fluid</h2>
-        <p>العرض عندي دايمًا 100% ومش عندي أي هوامش.</p>
-    </div>
-
-</body>
-</html>
-```
 
 ---
 
@@ -219,8 +189,6 @@ npm install bootstrap
     <!-- هنا نحط الـ Rows و Columns -->
 </div>
 ```
-✅ **`container`**: بيحافظ على هوامش على الجوانب.  
-✅ **`container-fluid`**: بياخد العرض بالكامل.  
 
 ---
 
@@ -258,21 +226,12 @@ npm install bootstrap
 | `col-4 + col-4 + col-4` | 3 أعمدة متساوية (كل واحد يأخذ ثلث العرض) |
 | `col-3 + col-3 + col-3 + col-3` | 4 أعمدة متساوية (كل واحد يأخذ ربع العرض) |
 
-🔹 **مثال عملي على تقسيمات مختلفة:**
-```html
-<div class="container">
-    <div class="row">
-        <div class="col-4 bg-primary text-white">عمود 1</div>
-        <div class="col-4 bg-success text-white">عمود 2</div>
-        <div class="col-4 bg-danger text-white">عمود 3</div>
-    </div>
-</div>
-```
-
 ---
 
 ### 🔹 الـ Grid والاستجابة للشاشات المختلفة
-🔹 Bootstrap بيوفر **كلاسات مخصصة** لكل نوع من الشاشات، بحيث تقدر تتحكم في عدد الأعمدة بناءً على حجم الجهاز:  
+🔹 Bootstrap بيوفر 
+**كلاسات مخصصة** لكل نوع من الشاشات، بحيث تقدر تتحكم في عدد الأعمدة بناءً على حجم الجهاز
+- في 5 كلاسات  
 
 | **الحجم** | **الكلاس المستخدم** | **وصف** |
 |------------|-----------------|-----------|
@@ -282,16 +241,12 @@ npm install bootstrap
 | Large | `col-lg-` | اللابتوب (≥992px) |
 | Extra Large | `col-xl-` | الشاشات الكبيرة (≥1200px) |
 
-🔹 **مثال على تصميم متجاوب:**
-```html
-<div class="container">
-    <div class="row">
-        <div class="col-sm-12 col-md-6 col-lg-4 bg-primary text-white">عمود متجاوب</div>
-        <div class="col-sm-12 col-md-6 col-lg-4 bg-success text-white">عمود متجاوب</div>
-        <div class="col-sm-12 col-md-6 col-lg-4 bg-danger text-white">عمود متجاوب</div>
-    </div>
-</div>
-```
+
+مثال في موبايل <br>
+![alt text](image-3.png)
+
+نفس الموقع على الابتوب<br>
+![alt text](image-2.png)
 
 ---
 
@@ -309,15 +264,6 @@ Bootstrap بيوفر كلاسات للمحاذاة الرأسية والأفقي
 | `justify-content-between` | توزيع الأعمدة مع وجود مسافات متساوية بينها |
 | `justify-content-around` | توزيع الأعمدة مع وجود مسافات على الأطراف |
 
-🔹 **مثال عملي**:
-```html
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-4 bg-primary text-white">عمود في المنتصف</div>
-    </div>
-</div>
-```
-
 ---
 
 #### 📌 المحاذاة الرأسية (`align-items-`)
@@ -328,15 +274,6 @@ Bootstrap بيوفر كلاسات للمحاذاة الرأسية والأفقي
 | `align-items-start` | محاذاة في الأعلى |
 | `align-items-center` | محاذاة في المنتصف |
 | `align-items-end` | محاذاة في الأسفل |
-
-🔹 **مثال عملي**:
-```html
-<div class="container">
-    <div class="row align-items-center" style="height: 200px;">
-        <div class="col-4 bg-primary text-white">وسط الصف</div>
-    </div>
-</div>
-```
 
 ---
 

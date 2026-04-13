@@ -291,6 +291,8 @@ Bootstrap بيوفر كلاسات للمحاذاة الرأسية والأفقي
 
 ### 3. الكروت (Cards)
 الكروت بتساعدك في عرض المحتوى داخل صندوق منسق بشكل احترافي:
+مثال<br>
+![alt text](./images%20for%20example/img-4.PNG)
 
 ممكن تضيف: <br>
 `card-header` أو `card-footer` <br>

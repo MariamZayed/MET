@@ -1,52 +1,50 @@
 graph = {
-    'u': ['v', 'x'],
-    'v': ['y'],
+    'm': ['t', 'x'],
+    't': ['y'],
     'w': ['y', 'z'],
-    'x': ['v'],
+    'x': ['t'],
     'y': ['x'],
     'z': ['z']
 }
 
-color = {}  # WHITE, GRAY, BLACK
-pi    = {}
-d     = {}
-f     = {}
-time  = 0
-
-WHITE, GRAY, BLACK = 0, 1, 2
+color    = {}  # WHITE, GRAY, BLACK
+parent   = {}
+distance = {}
+finish   = {}
+time     = 0
 
 
-for u in graph:
-    color[u] = WHITE
-    pi[u] = None
+for node in graph:
+    color[node] = "WHITE"
+    parent[node] = None
 
 def DFS():
     global time
     time = 0
-    for u in graph:
-        if color[u] == WHITE:
-            DFS_VISIT(u)
+    for node in graph:
+        if color[node] == "WHITE":
+            DFS_VISIT(node)
 
 def DFS_VISIT(u):
     global time
     time += 1
-    d[u] = time
-    color[u] = GRAY
+    distance[u] = time
+    color[u] = "GRAY"
 
     for v in graph[u]:
-        if color[v] == WHITE:
-            pi[v] = u
+        if color[v] == "WHITE":
+            parent[v] = u
             DFS_VISIT(v)
 
-    color[u] = BLACK
+    color[u] = "BLACK"
     time += 1
-    f[u] = time
+    finish[u] = time
 
 
 
 
 DFS()
 
-print("ta\td\tf")
+print("n\td\tf")
 for u in sorted(graph):
-    print(f"{u}\t\t{d[u]}\t{f[u]}")
+    print(f"{u}\t{distance[u]}\t{finish[u]}")

@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "school";
+$dbname = "met";
 
 // إنشاء الاتصال
 $conn = new mysqli($servername, $username, $password, $dbname);

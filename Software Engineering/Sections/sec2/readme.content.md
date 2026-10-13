@@ -3,46 +3,50 @@
 ## Example
  <img src="./../../images/img2-1.png" alt="alt text" width="500">
 
-## 1. Understanding and Calculating Precedence (Earliest Start Time)
+
+## 1. Understanding & Calculating Precedence (Earliest Start Time)
 
 ### What Does "Precedence" Mean?
-In project management, **Precedence** refers to task dependencies (الأسبقية أو المهام السابقة المعتمد عليها). 
-* In the dependency definition, it defines which predecessor tasks must finish before an activity can start.
-* In the Gantt data table, the numeric value represents the **Earliest Start Time ($ES$)** of the task measured in days from project kick-off.
+In project management, **Precedence** defines task dependencies (الأسبقية أو الاعتمادية بين المهام):
+* **Dependency Definition:** Identifies which predecessor task(s) must complete before an activity can start.
+* **Offset Value (`Precedence`):** Represents the **Earliest Start Time ($ES$)** in days from project kick-off.
 
-### The Calculation Rules
-$$\text{End Time} = \text{Start Time} + \text{Duration}$$
+### Core Calculation Formulas
 
-$$\text{Start Time (Precedence)} = \max(\text{End Times of all immediate predecessor tasks})$$
+$$
+\text{End Time} = \text{Start Time} + \text{Duration}
+$$
 
-If an activity has no predecessors (`NONE`), its start time is $0$.
+$$
+\text{Start Time (Precedence)} = \max(\text{End Times of all immediate predecessor tasks})
+$$
+
+> *Note:* If an activity has no predecessor (`NONE`), its Start Time is set to $0$.
 
 ---
 
-### Step-by-Step Breakdown for Activities A–J
+### Step-by-Step Dependency Table (Activities A–J)
 
-| Activity | Dependencies | Calculation Formula / Rule | Start Time (`Precedence`) | Duration (`Time`) | End Time |
+| Activity | Dependencies | Calculation Logic | Start Time (`Precedence`) | Duration (`Time`) | End Time |
 | :---: | :---: | :--- | :---: | :---: | :---: |
-| **A** | NONE | Starts at day $0$ | **$0$** | 40 | $0 + 40 = 40$ |
-| **B** | NONE | Starts at day $0$ | **$0$** | 20 | $0 + 20 = 20$ |
-| **C** | A, B | $\max(\text{End}_A, \text{End}_B) = \max(40, 20)$ | **$40$** | 15 | $40 + 15 = 55$ |
-| **D** | A | $\text{End}_A = 40$ | **$40$** | 25 | $40 + 25 = 65$ |
-| **E** | C | $\text{End}_C = 55$ | **$55$** | 15 | $55 + 15 = 70$ |
-| **F** | A, B | $\max(\text{End}_A, \text{End}_B) = \max(40, 20)$ | **$40$** | 25 | $40 + 25 = 65$ |
-| **G** | F | $\text{End}_F = 65$ | **$65$** | 10 | $65 + 10 = 75$ |
-| **H** | G | $\text{End}_G = 75$ | **$75$** | 15 | $75 + 15 = 90$ |
-| **I** | G | $\text{End}_G = 75$ | **$75$** | 10 | $75 + 10 = 85$ |
-| **J** | I | $\text{End}_I = 85$ | **$85$** | 15 | $85 + 15 = 100$ |
-
- <img src="./../../images/img2-3.png" alt="alt text" width="500">
+| **A** | NONE | Starts at project kickoff ($0$) | **0** | 40 | $0 + 40 = 40$ |
+| **B** | NONE | Starts at project kickoff ($0$) | **0** | 20 | $0 + 20 = 20$ |
+| **C** | A, B | $\max(\text{End}_A, \text{End}_B) = \max(40, 20)$ | **40** | 15 | $40 + 15 = 55$ |
+| **D** | A | $\text{End}_A = 40$ | **40** | 25 | $40 + 25 = 65$ |
+| **E** | C | $\text{End}_C = 55$ | **55** | 15 | $55 + 15 = 70$ |
+| **F** | A, B | $\max(\text{End}_A, \text{End}_B) = \max(40, 20)$ | **40** | 25 | $40 + 25 = 65$ |
+| **G** | F | $\text{End}_F = 65$ | **65** | 10 | $65 + 10 = 75$ |
+| **H** | G | $\text{End}_G = 75$ | **75** | 15 | $75 + 15 = 90$ |
+| **I** | G | $\text{End}_G = 75$ | **75** | 10 | $75 + 10 = 85$ |
+| **J** | I | $\text{End}_I = 85$ | **85** | 15 | $85 + 15 = 100$ |
 
 ---
 
-## 2. Prepare Your Excel Table
+## 2. Prepare the Excel Data Sheet
 
-Organize your data in Excel into three columns using the calculated values:
+Set up your table in Excel with three clear columns:
 
-| Activities | Precedence | Time |
+| Activities | Precedence | Duration |
 | :---: | :---: | :---: |
 | A | 0 | 40 |
 | B | 0 | 20 |
@@ -57,66 +61,67 @@ Organize your data in Excel into three columns using the calculated values:
 
 ---
 
-## 3. Insert the Stacked Bar Chart
+## 3. Step-by-Step Implementation in Excel 2024
 
-1. Select only the **Precedence** values with their header.
-2. Go to the **Insert** tab on the Excel ribbon.
-3. In the **Charts** group, click on **Bar**.
-4. Choose **Stacked Bar** (the second option under **2-D Bar**).
-
----
-
-## 4. Add Duration (`Time`) and Assign Task Labels
-
-1. Right-click anywhere inside the chart area and select **Select Data...**.
-
-### A. Add Duration Data
-2. Under **Legend Entries (Series)** on the left side, click **Add**:
-   * **Series name:** Click cell header `Time` (or enter `"Time"`).
-   * **Series values:** Select the numeric cells in the **Time** column (`40` down to `15`).
-   * Click **OK**.
-
-### B. Map Task Labels (Fixing the 1, 2, 3... Issue)
-3. Under **Horizontal (Category) Axis Labels** on the right side, click **Edit**:
-   * **Axis label range:** Select the cells containing task names (`A` through `J`, omitting the header).
-   * Click **OK**.
-4. Click **OK** again to exit the dialog.
+### Step 1: Insert the 2-D Stacked Bar Chart
+1. Highlight only the **Precedence** column values along with its header (e.g., `B1:B11`).
+2. Navigate to the ribbon: **Insert** $\rightarrow$ **Charts** group.
+3. Click the **Insert Column or Bar Chart** icon.
+4. Under the **2-D Bar** section, select **Stacked Bar** *(Do NOT select Stacked Column; Gantt charts require horizontal bars)*.
 
 ---
 
-## 5. Make the Precedence Bars Transparent
-
-1. Left-click once on the first set of bars (the **Precedence** bars) to select all of them.
-2. Right-click on the selected bars and choose **Format Data Series...**.
-3. In the formatting pane/window:
-   * Go to **Fill** $\rightarrow$ select **No fill**.
-   * Go to **Border Color** $\rightarrow$ select **No line**.
-4. *(Optional)* Click on the remaining **Time** bars, navigate to **Fill**, select **Solid fill**, and pick your preferred color (e.g., Brick Red).
+### Step 2: Add the Duration Series
+1. Right-click anywhere in the chart area and select **Select Data...**.
+2. Under **Legend Entries (Series)** on the left, click **Add**:
+   * **Series name:** Click the column header cell `Duration`.
+   * **Series values:** Clear any default values (`={1}`), then select the numeric values in the `Duration` column (e.g., `C2:C11`).
+3. Click **OK**.
 
 ---
 
-## 6. Adjust the Axes to Match the Layout
+### Step 3: Map the Task Category Axis (A, B, C...)
+*(Prevents sequential numbers 1, 2, 3... from showing on the axis)*
 
-### A. Reverse the Task Order (A at top, J at bottom)
-1. Right-click the **Vertical Axis** (the activity letters A–J) and click **Format Axis...**.
-2. Under **Axis Options**, check **Categories in reverse order**.
-
-### B. Set Axis Direction and Step Intervals
-1. Right-click the **Horizontal Axis** (the numeric timeline axis) and select **Format Axis...**.
-2. Check **Values in reverse order** *(to match layouts where the timeline counts right-to-left starting at 0 on the right)*.
-3. Under **Axis Options**:
-   * Set **Minimum** to `0`.
-   * Set **Maximum** to `120` (or `100`).
-   * Set **Major unit** to `20` to display intervals of 20 units ($0, 20, 40, 60, \dots$).
-4. Close the dialog.
+1. While still inside the **Select Data Source** dialog, look at the right side under **Horizontal (Category) Axis Labels**.
+2. Click **Edit**.
+3. In the **Axis label range** field, select the letters `A` through `J` (e.g., `A2:A11`, excluding the table header).
+4. Click **OK**, then click **OK** again to close the dialog.
 
 ---
 
-## Troubleshooting
+### Step 4: Hide the Precedence Bars (Float the Durations)
+1. In the chart, click once on the first bar series (**Precedence**) to select all starting segments.
+2. Right-click and choose **Format Data Series...** to open the side pane.
+3. In the **Format Data Series** pane, select the **Fill & Line** tab (paint bucket icon):
+   * Under **Fill**, select **No fill**.
+   * Under **Border**, select **No line**.
 
-### Why does the vertical axis display numbers (1, 2, 3...) instead of task names (A, B, C...)?
-By default, Excel assigns sequential row indices if the category axis range is omitted.
-* **Fix:** Right-click chart $\rightarrow$ **Select Data** $\rightarrow$ Under **Horizontal (Category) Axis Labels**, click **Edit** $\rightarrow$ Select cells `A` through `J` $\rightarrow$ Click **OK**.
+---
 
-## Output 
- <img src="./../../images/img2-2.png" alt="alt text" width="500">
+### Step 5: Adjust Vertical & Horizontal Axes (Match Target Style)
+
+#### A. Invert Vertical Categories (A at Top, J at Bottom)
+1. Right-click on the vertical axis containing task names (`A, B, C...`) and select **Format Axis...**.
+2. In the right pane under **Axis Options** (bar graph icon):
+   * Check **Categories in reverse order**.
+
+#### B. Reverse Horizontal Scale (0 on Right $\rightarrow$ 120 on Left)
+1. Right-click on the numeric axis (`0, 20, 40...`) and select **Format Axis...**.
+2. In the right pane under **Axis Options**:
+   * Check **Values in reverse order**.
+   * Under **Units**, set **Major** to `20` (to establish intervals of $0, 20, 40, \dots, 120$).
+   * Under **Bounds**, set **Minimum** to `0` and **Maximum** to `120`.
+
+---
+
+## 4. Common Troubleshooting Tips
+
+* **Bars are standing vertically instead of horizontally:**
+  * You selected *Stacked Column* instead of *Stacked Bar*.
+  * *Fix:* Right-click the chart $\rightarrow$ **Change Chart Type...** $\rightarrow$ select **Bar** $\rightarrow$ choose **Stacked Bar** $\rightarrow$ **OK**.
+* **Vertical axis displays numbers (1, 2, 3...) instead of task letters:**
+  * Excel defaulted to row index numbers.
+  * *Fix:* Right-click chart $\rightarrow$ **Select Data** $\rightarrow$ Edit **Horizontal (Category) Axis Labels** $\rightarrow$ select your task names range (`A` to `J`).
+* **Task letters appear at the bottom/top edge rather than the side:**
+  * Check the **Labels** section in the **Format Axis** pane and verify that **Label Position** is set to **Next to Axis** or **High/Low** relative to reversed orientation.

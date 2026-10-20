@@ -1,10 +1,6 @@
 # UML Sequence Diagrams & System Architecture
 
-A comprehensive 60-minute practical workshop designed for teaching UML Sequence Diagrams using a multi-tier Web Authentication flow as a real-world case study.
-
----
-
-## 1. Theoretical Overview
+## 1. Overview
 
 ### What is a Sequence Diagram?
 A **Sequence Diagram** is an Interaction/Behavioral UML diagram that models how processes or objects collaborate over time. It visually represents the temporal order of messages exchanged between different actors and components to complete a specific system workflow.
@@ -24,7 +20,7 @@ A **Sequence Diagram** is an Interaction/Behavioral UML diagram that models how 
 
 This scenario illustrates an end-to-end authentication workflow spanning four core system layers: **User**, **Frontend**, **Backend**, and **Database**.
 
-
+<img width="708" height="477" alt="image" src="https://github.com/user-attachments/assets/e38f80e0-ec15-4cec-bf70-7ad542fc5908" />
 
 
 ### Flow Execution Breakdown

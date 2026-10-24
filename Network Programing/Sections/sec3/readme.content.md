@@ -43,8 +43,10 @@ class Server
         byte[] buffer = new byte[1024];
         int count = client.Receive(buffer);
         string msg = Encoding.ASCII.GetString(buffer, 0, count);
-        Console.WriteLine("Received: " + msg);
 
+        Console.WriteLine("Received: " + msg);
+        Console.ReadLine();
+        
         // 4. إغلاق الاتصال
         client.Close();
         listener.Close();

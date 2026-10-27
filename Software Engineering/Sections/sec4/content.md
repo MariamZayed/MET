@@ -23,7 +23,7 @@
 
 #### Data Flows Breakdown
 
-<h1>imgggggggggggggggggggg</h1>
+<img width="833" height="478" alt="image" src="https://github.com/user-attachments/assets/ce5462a9-57ba-463d-8723-d8bfb04fd005" />
 
 * **Customers $\longleftrightarrow$ System:**
 * *Inputs (Inflows):* `Search Queries`, `Order Data`, `Payment Info`, `Shipping Address`.
@@ -66,7 +66,7 @@
 
 #### Use Case Breakdown
 
-<h1>imgggggggggggggggggggg</h1>
+<img width="652" height="551" alt="use-case" src="https://github.com/user-attachments/assets/7cb9021a-f815-4aa1-9073-171928ede07a" />
 
 ##### Customer
 

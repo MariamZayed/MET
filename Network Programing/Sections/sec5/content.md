@@ -1,7 +1,28 @@
-تم عكس الأدوار؛ جهازك الأول (10.77.2.1) هو السيرفر الذي يبث شاشته، والجهاز الثاني (10.77.2.3) هو الكلاينت الذي سيشاهد الشاشة.
-أولاً: كود جهازك الأول (10.77.2.1 - Server / الجهاز الذي سنعرض شاشته)
- * افتحي مشروع Windows Forms App (.NET Framework) على جهازك 10.77.2.1.
- * بدون إضافة أي أدوات على الفورم، افتحي صفحة الكود (View Code) واستبدلي الكود بالتالي، ثم شغليه (Run):
+
+# Mini Remote Desktop (C# TCP Socket Programming)
+
+A lightweight LAN screen-streaming application built using C# Windows Forms and TCP Sockets.
+
+---
+
+## 1. How It Works
+* **Server (`10.77.2.1`):** Captures the primary screen, compresses it into a `JPEG` byte array (`byte[]`), sends the **4-byte image size header**, followed by the **image payload** over Port `5000`.
+* **Client (`10.77.2.3`):** Connects to the Server IP, reads the first 4 bytes to determine the incoming frame size, reads the full image byte array from the `NetworkStream`, and renders it inside a `PictureBox`.
+
+---
+
+## 2. Network Setup
+1. Open `CMD` on both machines and run `ipconfig` to verify the **IPv4 Address**:
+   * **Server IP:** `10.77.2.1`
+   * **Client IP:** `10.77.2.3`
+2. Verify connectivity from the Client machine by running:
+   ```cmd
+   ping 10.77.2.1
+
+3. Execution Steps & Source Code
+Step A: Server Machine (10.77.2.1)
+ * Open Visual Studio and create a new Windows Forms Application named RemoteServerApp.
+ * Press F7 to open Form1.cs, replace all existing code with the following, and press F5 to run (Click Allow Access if prompted by Windows Firewall):
 using System;
 using System.Drawing;
 using System.Drawing.Imaging;
@@ -18,8 +39,9 @@ namespace RemoteServerApp
         public Form1()
         {
             InitializeComponent();
-            this.Text = "Server (10.77.2.1) - Waiting for 10.77.2.3...";
-            
+            this.Text = "Server (10.77.2.1) - Waiting...";
+            this.Size = new Size(400, 150);
+
             Thread serverThread = new Thread(StartServer);
             serverThread.IsBackground = true;
             serverThread.Start();
@@ -29,12 +51,11 @@ namespace RemoteServerApp
         {
             try
             {
-                // يستمع على جهازك الأول (10.77.2.1) على بورت 5000
                 TcpListener server = new TcpListener(IPAddress.Any, 5000);
                 server.Start();
 
                 TcpClient client = server.AcceptTcpClient();
-                this.Invoke((MethodInvoker)(() => this.Text = "Connected to 10.77.2.3! Streaming my screen..."));
+                this.Invoke((MethodInvoker)(delegate { this.Text = "Connected! Streaming..."; }));
 
                 NetworkStream stream = client.GetStream();
 
@@ -69,11 +90,10 @@ namespace RemoteServerApp
     }
 }
 
-(تأكدي من الضغط على Allow Access لو ظهرت نافذة الـ Firewall على جهازك).
-ثانياً: كود الجهاز الثاني (10.77.2.3 - Client / الجهاز الذي سيشاهد شاشة جهازك)
- * افتحي مشروع Windows Forms App (.NET Framework) على الجهاز الثاني 10.77.2.3.
- * ضعي PictureBox (pictureBox1 واجعلي SizeMode يساوي StretchImage)، وضعي زرار Button (button1).
- * اضغطي دبل كليك على الزرار لربط الحدث، وضعي الكود التالي (يتصل بالـ IP الخاص بجهازك 10.77.2.1):
+Step B: Client Machine (10.77.2.3)
+ * Open Visual Studio and create a new Windows Forms Application named RemoteClientApp.
+ * Press F7 to open Form1.cs (no need to drag any controls from the Toolbox), replace all existing code with the following, and press F5 to run:
+ * Click the "Connect to 10.77.2.1" button to start viewing the Server screen.
 using System;
 using System.Drawing;
 using System.IO;
@@ -85,22 +105,39 @@ namespace RemoteClientApp
 {
     public partial class Form1 : Form
     {
+        private PictureBox screenBox;
+        private Button btnConnect;
+
         public Form1()
         {
             InitializeComponent();
             this.Text = "Client Viewer (10.77.2.3)";
+            this.Size = new Size(800, 600);
+
+            btnConnect = new Button();
+            btnConnect.Text = "Connect to 10.77.2.1";
+            btnConnect.Dock = DockStyle.Top;
+            btnConnect.Height = 40;
+            btnConnect.Click += BtnConnect_Click;
+
+            screenBox = new PictureBox();
+            screenBox.Dock = DockStyle.Fill;
+            screenBox.SizeMode = PictureBoxSizeMode.StretchImage;
+
+            this.Controls.Add(screenBox);
+            this.Controls.Add(btnConnect);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void BtnConnect_Click(object sender, EventArgs e)
         {
-            button1.Enabled = false;
-            // الاتصال بجهازك الأول 10.77.2.1
+            btnConnect.Enabled = false;
+            btnConnect.Text = "Connected - Viewing 10.77.2.1";
             StartReceiving("10.77.2.1");
         }
 
         private void StartReceiving(string serverIp)
         {
-            Thread clientThread = new Thread(() =>
+            Thread clientThread = new Thread(delegate ()
             {
                 try
                 {
@@ -131,10 +168,10 @@ namespace RemoteClientApp
                         MemoryStream ms = new MemoryStream(imageBytes);
                         Image img = Image.FromStream(ms);
 
-                        pictureBox1.Invoke((MethodInvoker)(() =>
+                        screenBox.Invoke((MethodInvoker)(delegate
                         {
-                            pictureBox1.Image?.Dispose();
-                            pictureBox1.Image = img;
+                            if (screenBox.Image != null) screenBox.Image.Dispose();
+                            screenBox.Image = img;
                         }));
                     }
                 }
@@ -149,4 +186,10 @@ namespace RemoteClientApp
     }
 }
 
-شغلي جهازك الأول (10.77.2.1) أولاً، ثم شغلي الجهاز الثاني (10.77.2.3) واضغطي على الزرار لتظهر شاشة جهازك عليه.
+4. Key Classes Used
+ * TcpListener / TcpClient: Establishes the TCP connection over Port 5000.
+ * NetworkStream: Sends and receives raw byte[] streams across the network.
+ * Graphics.CopyFromScreen: Captures the desktop screen into a Bitmap.
+ * MemoryStream: Converts the Bitmap image to a compressed JPEG byte array and vice versa.
+ * BitConverter: Converts the image length (int) into a 4-byte header (Length-Prefixed Framing).
+

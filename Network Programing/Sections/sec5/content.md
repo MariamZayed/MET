@@ -23,6 +23,8 @@ A lightweight LAN screen-streaming application built using C# Windows Forms and 
 Step A: Server Machine (10.77.2.1)
  * Open Visual Studio and create a new Windows Forms Application named RemoteServerApp.
  * Press F7 to open Form1.cs, replace all existing code with the following, and press F5 to run (Click Allow Access if prompted by Windows Firewall):
+
+```
 using System;
 using System.Drawing;
 using System.Drawing.Imaging;
@@ -89,11 +91,14 @@ namespace RemoteServerApp
         }
     }
 }
+```
 
 Step B: Client Machine (10.77.2.3)
  * Open Visual Studio and create a new Windows Forms Application named RemoteClientApp.
  * Press F7 to open Form1.cs (no need to drag any controls from the Toolbox), replace all existing code with the following, and press F5 to run:
  * Click the "Connect to 10.77.2.1" button to start viewing the Server screen.
+
+```
 using System;
 using System.Drawing;
 using System.IO;
@@ -185,6 +190,7 @@ namespace RemoteClientApp
         }
     }
 }
+```
 
 4. Key Classes Used
  * TcpListener / TcpClient: Establishes the TCP connection over Port 5000.

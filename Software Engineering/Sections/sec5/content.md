@@ -17,6 +17,7 @@
 
 #### **Part A: How to Create an Activity Diagram**
 
+<img width="412" height="558" alt="activity" src="https://github.com/user-attachments/assets/d7c61f84-eb88-4985-a3c8-ba168e372982" />
 
 
 * **Step 1: Set Up Swimlanes**
@@ -42,6 +43,7 @@
 
 #### **Part B: How to Create an ERD (Entity-Relationship Diagram)**
 
+<img width="504" height="775" alt="erd" src="https://github.com/user-attachments/assets/13ff5d1d-9bb7-4e85-a453-f8342fe58af5" />
 
 
 

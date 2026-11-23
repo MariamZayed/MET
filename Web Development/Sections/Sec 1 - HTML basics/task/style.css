@@ -1,0 +1,91 @@
+/* 1. General Page Styling (body) */
+body {
+    background-color: rgb(230, 230, 255); /* لون الخلفية المطلوب للرجال */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+/* التنسيق المطلوب لكل وسم p */
+p {
+    color: #555;
+    font-size: 18px;
+}
+
+/* 2. h1 Styling */
+h1 {
+    font-size: 3rem;
+    color: #2c3e50;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    margin-top: 30px;
+    letter-spacing: 2px;
+}
+
+/* 3. Navigation Bar Styling */
+ul {
+    list-style: none;
+    margin: 20px auto;
+    padding: 0;
+    background-color: #2c3e50; /* نفس لون h1 */
+    width: 60%;
+    border-radius: 8px;
+}
+
+ul li {
+    display: inline-block;
+}
+
+ul li a {
+    display: inline-block;
+    padding: 12px 25px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+/* تأثير الـ Hover المطلوب */
+ul li a:hover {
+    background-color: #1abc9c;
+    transform: scale(1.1);
+}
+
+/* 4. Image Styling */
+img {
+    display: block;
+    margin: 20px auto;
+    border-radius: 50%; /* لجعل الصورة دائرية */
+    border: 4px solid #1abc9c;
+    width: 200px;
+    height: 200px;
+}
+
+/* 5. About Section */
+h2 + img + p {
+    line-height: 1.8;
+    max-width: 600px;
+    text-align: justify;
+    margin: auto;
+}
+
+/* 6. Contact Form Styling */
+input, textarea {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+input[type="submit"] {
+    background: #1abc9c;
+    color: white;
+    cursor: pointer;
+    border: none;
+    transition: 0.3s;
+}
+
+input[type="submit"]:hover {
+    background: #16a085;
+}
